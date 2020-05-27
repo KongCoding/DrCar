@@ -82,6 +82,7 @@ public class GUI {
 
         @Override
         public void windowClosing(WindowEvent e) {
+            ReadService.Delete();
             System.exit(0);
         }
 
@@ -119,7 +120,7 @@ public class GUI {
         @Override
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
-                case "Close": System.exit(0);break;
+                case "Close": ReadService.Delete();System.exit(0);break;
                 case "Menu": QAMain.page.menu();break;
                 case "Enter": QAMain.page.next();break;
                 case "1": QAMain.page.one();break;

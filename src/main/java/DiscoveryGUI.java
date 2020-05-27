@@ -43,6 +43,7 @@ public class DiscoveryGUI {
         numbers = new JButton[4];
         for(int i = 1; i <= numbers.length; i++){
             JButton number = i != 4? new JButton("" + i):new JButton("Return");
+            if(i == 3){number = new JButton("Read");}
             number.addActionListener(BL);
             numberPane.add(number);
             numbers[i - 1] = number;
@@ -75,7 +76,7 @@ public class DiscoveryGUI {
                 case "Ask": discoveryControl.next(); break;
                 case "1": discoveryControl.one();break;
                 case "2": discoveryControl.two();break;
-                case "3": discoveryControl.three();break;
+                case "Read": discoveryControl.three();break;
                 case "Return": discoveryControl.four();break;
                 default:break;
             }

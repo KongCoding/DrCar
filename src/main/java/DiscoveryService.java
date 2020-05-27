@@ -15,6 +15,8 @@ public class DiscoveryService implements Page{
 
     private DiscoveryGUI ui;
     private static Discovery discovery;
+    private ReadService read;
+    private String latestAnswer = "Hi"; //used for ReadService to read
 
     private static final String AIname = "Dr. Car: ";
 
@@ -37,6 +39,7 @@ public class DiscoveryService implements Page{
     public DiscoveryService(DiscoveryGUI gui){
         ui = gui;
         setService();
+        read = new ReadService();
     }
 //What are the minimum hardware requirements
     private ArrayList<String> ask(String question){
@@ -60,6 +63,7 @@ public class DiscoveryService implements Page{
     @Override
     public void start() {
         //ui.addText("Eyes: Hi, what can I do for you?\n");
+        //latestAnswer = "Hi, what can I do for you?";
         plansPos = 0;
         ui.addText(AIname + ": " + plans[plansPos] + "\n");
     }
@@ -103,7 +107,7 @@ public class DiscoveryService implements Page{
 
     @Override
     public void three() {
-
+        read.Read(latestAnswer);
     }
 
     @Override
