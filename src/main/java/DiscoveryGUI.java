@@ -42,7 +42,7 @@ public class DiscoveryGUI {
         numberPane.setLayout(new GridLayout(4,1,4,4));
         numbers = new JButton[4];
         for(int i = 1; i <= numbers.length; i++){
-            JButton number = new JButton("" + i);
+            JButton number = i != 4? new JButton("" + i):new JButton("Return");
             number.addActionListener(BL);
             numberPane.add(number);
             numbers[i - 1] = number;
@@ -54,9 +54,10 @@ public class DiscoveryGUI {
         discoveryControl.start();
     }
 
-    public String getText(){
+    public String getInput(){
         return textInput.getText();
     }
+    public void cleanInput(){textInput.setText("");}
 
     public void addText(String newMessage){
         chat.append(newMessage + "\n");
@@ -71,11 +72,11 @@ public class DiscoveryGUI {
         @Override
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
-                case "Ask": discoveryControl.next();
-                case "1": discoveryControl.one();
-                case "2": discoveryControl.two();
-                case "3": discoveryControl.three();
-                case "4": discoveryControl.four();
+                case "Ask": discoveryControl.next(); break;
+                case "1": discoveryControl.one();break;
+                case "2": discoveryControl.two();break;
+                case "3": discoveryControl.three();break;
+                case "Return": discoveryControl.four();break;
                 default:break;
             }
         }

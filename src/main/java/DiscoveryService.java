@@ -16,12 +16,15 @@ public class DiscoveryService implements Page{
     private DiscoveryGUI ui;
     private static Discovery discovery;
 
+    private static final String AIname = "Dr. Car: ";
+
+    private int plansPos;
     private static String[] plans = {"Hello, welcome to QA system. I'm Dr. Car, which car would you want?",
             "Greate, what information do you want to know about it?",
             "Nice, it has many wonderful aspects. Which one do you want to know?",
             "<Answer to its performance>\n If you want to know more information about this car. " +
                     "Just type your question and ask me. If you want to find some other cars. Please click \"Return\"",
-            "Hello, welcome to QA system. I'm Dr. Car, which car would you want?", "Identifying cars......\n\n\n\n",
+            "Hello, welcome to QA system. I'm Dr. Car, which car would you want?", "Identifying cars......\n\n\n\n" +
             "Success, this car is <Car name> If that is the car you are looking for, please tell me your question. " +
                     "If not, please click \"Return\" to ask me again.", ""};
 
@@ -56,26 +59,31 @@ public class DiscoveryService implements Page{
 
     @Override
     public void start() {
-        ui.addText("Eyes: Hi, what can I do for you?\n");
+        //ui.addText("Eyes: Hi, what can I do for you?\n");
+        plansPos = 0;
+        ui.addText(AIname + ": " + plans[plansPos] + "\n");
     }
 
     @Override
     public void next() {
-        String question = ui.getText();
+        String question = ui.getInput();
+        ui.cleanInput();
         ui.addText("User: " + question + "\n");
-        ArrayList<String> answers = ask(question);
-        ui.addText("Eyes:\n");
-        int i = 1;
-        for(String answer : answers){
-            if(answer.equalsIgnoreCase("Sorry, I don't know what you want.")){
-                ui.addText(answer);
-            }else{
-                ui.addText(i + ": " + answer + "\n");
-            }
-            i++;
-        }
-        ui.addText("Eyes: Hi, what can I do for you?");
-        ui.addText("\n");
+        plansPos++;
+        ui.addText(AIname + plans[plansPos] + "\n");
+//        ArrayList<String> answers = ask(question);
+//        ui.addText("Eyes:\n");
+//        int i = 1;
+//        for(String answer : answers){
+//            if(answer.equalsIgnoreCase("Sorry, I don't know what you want.")){
+//                ui.addText(answer);
+//            }else{
+//                ui.addText(i + ": " + answer + "\n");
+//            }
+//            i++;
+//        }
+//        ui.addText("Eyes: Hi, what can I do for you?");
+//        ui.addText("\n");
     }
 
     @Override
@@ -100,6 +108,8 @@ public class DiscoveryService implements Page{
 
     @Override
     public void four() {
-
+        plansPos++;
+        ui.cleanText();
+        ui.addText(AIname + plans[plansPos] + "\n");
     }
 }
