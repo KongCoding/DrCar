@@ -17,10 +17,13 @@ public class DiscoveryGUI {
     }
 
     public void openGUI(){
-        DiscoveryButtonListener BL = new DiscoveryButtonListener();
+        DiscoveryButtonListener BL = new DiscoveryButtonListener(); //Create Listener for buttons
+        //Set the frame
         frame = new JFrame("Discovery Service");
         frame.setLayout(new BorderLayout(30,5));
         frame.addWindowListener(new WindowListen());
+
+        //Set the bottom panel = {TextField, 1 button}
         JPanel bottom = new JPanel();
         bottom.setLayout(new GridLayout(1,2,4,4));
         textInput = new JTextField(20);
@@ -30,6 +33,7 @@ public class DiscoveryGUI {
         bottom.add(ask);
         frame.add(bottom, BorderLayout.SOUTH);
 
+        //Set the middle panel = {1 TextArea}
         chat = new JTextArea();
         chat.setLineWrap(true);
         chat.setWrapStyleWord(true);
@@ -38,6 +42,7 @@ public class DiscoveryGUI {
         chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         frame.add(chatPane);
 
+        //Set the right panel = {4 buttons}
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(4,1,4,4));
         numbers = new JButton[4];
@@ -49,25 +54,49 @@ public class DiscoveryGUI {
             numbers[i - 1] = number;
         }
         frame.add(numberPane, BorderLayout.EAST);
+
+        //Set frame's size and make it visible.
         frame.setBounds(400,300,600,400);
         //f.pack();
         frame.setVisible(true);
+
+        //Initialize the content in Chat.
         discoveryControl.start();
     }
 
+    /**
+     * this method can help service classes to know what user enters.
+     * @return User's answers or questions.
+     **/
     public String getInput(){
         return textInput.getText();
     }
+
+    /**
+     * This method will clean user's input. It will be used as soon as user's latest input is caught by system.
+     */
     public void cleanInput(){textInput.setText("");}
 
+
+    /**
+     * This method will publish both user's and AI's messages on the chat.
+     * @param newMessage The message that is going to be published.
+     */
     public void addText(String newMessage){
         chat.append(newMessage + "\n");
     }
 
+    /**
+     * Clean the chat.
+     */
     public void cleanText(){
         chat.setText("");
     }
 
+
+    /**
+     * This class describes what system should do when user clicks the buttons.
+     */
     class DiscoveryButtonListener implements ActionListener {
 
         @Override
@@ -83,6 +112,9 @@ public class DiscoveryGUI {
         }
     }
 
+    /**
+     * This class describes what system should do when user clicks the red "X" on the right up corner.
+     */
     class WindowListen implements WindowListener {
 
         @Override
