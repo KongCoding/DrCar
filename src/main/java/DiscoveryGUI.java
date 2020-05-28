@@ -11,7 +11,7 @@ public class DiscoveryGUI {
     private JTextArea chat;
     private JTextField textInput;
     private JComboBox<String> languageChooser;
-    private JButton[] numbers;
+    //private JButton[] numbers;
     public DiscoveryGUI(){
         discoveryControl = new DiscoveryService(this);
     }
@@ -45,14 +45,27 @@ public class DiscoveryGUI {
         //Set the right panel = {4 buttons}
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(4,1,4,4));
-        numbers = new JButton[4];
-        for(int i = 1; i <= numbers.length; i++){
-            JButton number = i != 4? new JButton("" + i):new JButton("Return");
-            if(i == 3){number = new JButton("Read");}
-            number.addActionListener(BL);
-            numberPane.add(number);
-            numbers[i - 1] = number;
-        }
+        //numbers = new JButton[4];
+        JButton one = new JButton("1");
+        one.addActionListener(BL);
+        numberPane.add(one);
+        JButton picture = new JButton("Load Icon");
+        picture.addActionListener(BL);
+        numberPane.add(picture);
+        JButton read = new JButton("Read");
+        read.addActionListener(BL);
+        numberPane.add(read);
+        JButton returnButton = new JButton("Return");
+        returnButton.addActionListener(BL);
+        numberPane.add(returnButton);
+
+//        for(int i = 1; i <= numbers.length; i++){
+//            JButton number = i != 4? new JButton("" + i):new JButton("Return");
+//            if(i == 3){number = new JButton("Read");}
+//            number.addActionListener(BL);
+//            numberPane.add(number);
+//            numbers[i - 1] = number;
+//        }
         frame.add(numberPane, BorderLayout.EAST);
 
         //Set frame's size and make it visible.
@@ -95,6 +108,14 @@ public class DiscoveryGUI {
 
 
     /**
+     * This method can make chat block move to the bottom (show the last message) automatically.
+     * After I chose a picture and click "identify the picture", the new message was published, but the bar doesn't move.
+     * If someone finds any better way to implement this function. Feel free to modify it.
+     */
+    public void moveBarBottom(){
+        chat.selectAll();
+    }
+    /**
      * This class describes what system should do when user clicks the buttons.
      */
     class DiscoveryButtonListener implements ActionListener {
@@ -104,7 +125,7 @@ public class DiscoveryGUI {
             switch (e.getActionCommand()){
                 case "Ask": discoveryControl.next(); break;
                 case "1": discoveryControl.one();break;
-                case "2": discoveryControl.two();break;
+                case "Load Icon": discoveryControl.two();break;
                 case "Read": discoveryControl.three();break;
                 case "Return": discoveryControl.four();break;
                 default:break;

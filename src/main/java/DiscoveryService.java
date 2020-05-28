@@ -13,6 +13,7 @@ public class DiscoveryService implements Page{
     private static final String Environment = "4aa11f0e-787b-41c5-ac74-f19435b97a2e";
     private static final String Collection = "69e12469-4a83-4a75-96db-7f835148d78b";
 
+    private FileChooser choose;
     private DiscoveryGUI ui;
     private static Discovery discovery;
     private ReadService read;
@@ -28,7 +29,7 @@ public class DiscoveryService implements Page{
                     "Just type your question and ask me. If you want to find some other cars. Please click \"Return\"",
             "Hello, welcome to QA system. I'm Dr. Car, which car would you want?", "Identifying cars......\n\n\n\n" +
             "Success, this car is <Car name> If that is the car you are looking for, please tell me your question. " +
-                    "If not, please click \"Return\" to ask me again.", ""};
+                    "If not, please click \"Return\" to ask me again.", "To be continued..."};
 
     public static void setService(){
         IamAuthenticator authenticator = new IamAuthenticator(Apikey);
@@ -58,6 +59,12 @@ public class DiscoveryService implements Page{
 //            System.out.println(passages.getPassageText() + "\n");
 //        }
         return answers;
+    }
+
+    public void identifyPicture(String path){
+        plansPos++;
+        ui.addText(AIname + plans[plansPos] + "\n");
+        ui.moveBarBottom();
     }
 
     @Override
@@ -102,7 +109,7 @@ public class DiscoveryService implements Page{
 
     @Override
     public void two() {
-
+        choose = new FileChooser(this);
     }
 
     @Override
