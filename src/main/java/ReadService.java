@@ -18,10 +18,11 @@ public class ReadService {
         textToSpeech.setServiceUrl(URL);
     }
 
+
     public void Read(String sentence){
 //        SynthesizeOptions synthesizeOptions = new SynthesizeOptions.Builder().text(sentence)
 //                .accept("audio/wav").voice(trans + "-" + voices.get(trans)).build();
-        SynthesizeOptions synthesizeOptions = new SynthesizeOptions.Builder().text(dramaSentence)
+        SynthesizeOptions synthesizeOptions = new SynthesizeOptions.Builder().text(sentence)
                 .accept("audio/wav").voice("en-US_EmilyV3Voice").build();
         InputStream inputStream = textToSpeech.synthesize(synthesizeOptions).execute().getResult();
         try{

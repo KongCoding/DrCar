@@ -82,6 +82,7 @@ public class DiscoveryService implements Page{
         ui.addText("User: " + question + "\n");
         plansPos++;
         ui.addText(AIname + plans[plansPos] + "\n");
+        latestAnswer = plans[plansPos];
 //        ArrayList<String> answers = ask(question);
 //        ui.addText("Eyes:\n");
 //        int i = 1;

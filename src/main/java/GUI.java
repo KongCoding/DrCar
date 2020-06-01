@@ -14,7 +14,7 @@ public class GUI {
     private JButton[] ButtonList;
     public void OpenGUI(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Hello, Welcome Dr. Car!");
+        System.out.println("Hello, Welcome to Dr. Car!");
         f = new JFrame("Main Window");
         f.setLayout(new BorderLayout(30, 5));
         ButtonListener bL = new ButtonListener(this);
