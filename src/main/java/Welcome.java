@@ -5,8 +5,8 @@ public class Welcome implements Page {
     }
     private void WelcomePage(){
         ui.cleanText();
-        ui.addText("Hello, Welcome to Team i's Question Answering System (QAS).");
-        ui.addText("Please click 1 to see tutorial or click ENTER to continue");
+        ui.addText("Hello, Welcome to Dr. Car!.");
+        ui.addText("Please click 1 to see tutorial or click ENTER to continue to the Dr. Car Application");
     }
 
     private void TourPage(){
@@ -22,8 +22,12 @@ public class Welcome implements Page {
 
     @Override
     public void next() {
-        QAMain.page = new Menu(ui);
-        QAMain.page.start();
+//        QAMain.page = new Menu(ui);
+//        QAMain.page.start();
+        //directly opens the dr. car ui
+        DiscoveryGUI QAService = new DiscoveryGUI();
+        QAService.openGUI();
+        start();
     }
 
     @Override

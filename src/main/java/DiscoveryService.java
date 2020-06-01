@@ -22,14 +22,14 @@ public class DiscoveryService implements Page{
     private static final String AIname = "Dr. Car: ";
 
     private int plansPos;
-    private static String[] plans = {"Hello, welcome to QA system. I'm Dr. Car, which car would you want?",
-            "Greate, what information do you want to know about it?",
+    private static String[] plans = {"Hello, I'm Dr. Car!. What car would you like to know about?",
+
             "Nice, it has many wonderful aspects. Which one do you want to know?",
-            "<Answer to its performance>\n If you want to know more information about this car. " +
-                    "Just type your question and ask me. If you want to find some other cars. Please click \"Return\"",
+            "<Answer to its performance>\n If you would like to know more information about this car, " +
+                    "type another question. If you would like to search other cars. Please click \"Return\"",
             "Hello, welcome to QA system. I'm Dr. Car, which car would you want?", "Identifying cars......\n\n\n\n" +
-            "Success, this car is <Car name> If that is the car you are looking for, please tell me your question. " +
-                    "If not, please click \"Return\" to ask me again.", "To be continued..."};
+            "Success, this car is <Car name> If that is the car you are looking for, enter any questions about it. " +
+                    "If not, please click \"Return\" to try another search.", "To be continued..."};
 
     public static void setService(){
         IamAuthenticator authenticator = new IamAuthenticator(Apikey);
