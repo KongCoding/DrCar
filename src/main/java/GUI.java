@@ -123,7 +123,7 @@ public class GUI {
                 case "Close": ReadService.Delete();System.exit(0);break;
                 case "Menu": QAMain.page.menu();break;
                 case "Enter": QAMain.page.next();break;
-                case "1": QAMain.page.one();break;
+                case "1":QAMain.page.one(); break;
                 case "2": QAMain.page.two();break;
                 case "3": QAMain.page.three();break;
                 case "4": QAMain.page.four();break;

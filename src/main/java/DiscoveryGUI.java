@@ -27,7 +27,7 @@ public class DiscoveryGUI {
         JPanel bottom = new JPanel();
         bottom.setLayout(new GridLayout(1,2,4,4));
         textInput = new JTextField(20);
-        JButton ask = new JButton("Ask");
+        JButton ask = new JButton("Enter");
         ask.addActionListener(BL);
         bottom.add(textInput);
         bottom.add(ask);
@@ -46,7 +46,7 @@ public class DiscoveryGUI {
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(4,1,4,4));
         //numbers = new JButton[4];
-        JButton one = new JButton("1");
+        JButton one = new JButton("Voice Input");
         one.addActionListener(BL);
         numberPane.add(one);
         JButton picture = new JButton("Load Icon");
@@ -98,6 +98,9 @@ public class DiscoveryGUI {
     public void addText(String newMessage){
         chat.append(newMessage + "\n");
     }
+    public void addTextLine(String newMessage){
+        chat.append(newMessage);
+    }
 
     /**
      * Clean the chat.
@@ -123,8 +126,12 @@ public class DiscoveryGUI {
         @Override
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
-                case "Ask": discoveryControl.next(); break;
-                case "1": discoveryControl.one();break;
+                case "Enter": discoveryControl.next(); break;
+                case "Voice Input":
+
+                        discoveryControl.one();
+
+                    break;
                 case "Load Icon": discoveryControl.two();break;
                 case "Read": discoveryControl.three();break;
                 case "Return": discoveryControl.four();break;
