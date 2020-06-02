@@ -20,7 +20,8 @@ Search safety
 Return to menu
 
 Demonstrate voice search
-Search for Ford F150 2018
+Say "Please search for a Ford F150 2018 model"
+
 Search for performance
 return to main menu
 
