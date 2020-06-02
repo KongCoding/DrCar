@@ -170,7 +170,7 @@ public class DiscoveryService implements Page{
     @Override
     public void two() {
         choose = new FileChooser(this);
-        ui.addText(AIname+" \"Identifying car......\n\n\n\n\" +\n") ;
+        ui.addText(AIname+" \"Identifying car......\"\n\n\n\n") ;
 
 
     }
