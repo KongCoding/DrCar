@@ -1,0 +1,26 @@
+Demo Script:
+
+Start by pressing enter to get into Dr. Car
+
+Search Toyota Camry 2017
+
+Demonstrate Read functionality
+
+Search "Standard Features"
+Search "Top speed"
+
+press return to get back to main menu
+
+Demonstrate image search
+
+Select first volvo pic
+
+Search Price
+Search safety
+Return to menu
+
+Demonstrate voice search
+Search for Ford F150 2018
+Search for performance
+return to main menu
+

@@ -21,35 +21,49 @@ public class DiscoveryService implements Page{
     private static Discovery discovery;
     private ReadService read;
     private String latestAnswer = "Hello, I'm Dr. Car!. What car would you like to know about?"; //used for ReadService to read
-    boolean voice=false;
+    boolean voice;
+    boolean img;
     private static final String AIname = "Dr. Car: ";
     private int plansPos;
     private int scriptPos;
+    private int imgPos;
     private static String[] plans = {"Hello, I'm Dr. Car!. What car would you like to know about?",
 
-            "Nice, it has many wonderful aspects. Which one do you want to know?",
-            "Standard Features: \n178-horsepower, 2.5-liter four-cylinder engine\n" +
+            "You have selected: 2017 Toyota Camry. What information would you like to know about this car?",
+            "From cars.com:\n\"Standard Features: \n178-horsepower, 2.5-liter four-cylinder engine\n" +
                     "Six-speed automatic transmission\n" +
                     "Front-wheel drive\n" +
                     "Bluetooth streaming audio\n" +
                     "iPod/USB-compatible stereo\n" +
                     "60/40-split folding backseat\n" +
-                    "Required in every new car: front airbags, antilock brakes and an electronic stability system\n " +
-                    "If you would like to know more information about this car, type another question. If you would like to search other cars. Please click \"Return\""};
+                    "Required in every new car: front airbags, antilock brakes and an electronic stability system\"\n " +
+                    "If you would like to know more information about this car, type another question. If you would like to search other cars. Please click \"Return\"",
+    "From www.morortrend.com:\n\"Our 2017 Toyota Camry XSE tester is powered the base 2.5-liter I-4 making 178 hp and 170 lb-ft of torque. " +
+            "A six-speed automatic sends power to the front wheels. The Camry accelerated to 60 mph in 8.5 seconds and finished the quarter mile in 16.5 seconds at 86.5 mph\"",
+    "If you would like to know more information about this car, type another question. If you would like to search other cars. Please click \"Return\""};
     public static String[] voicescript = {"You have selected to search using voice input!" + "\n" + " Press \"Enter\" and begin speaking, then enter again to stop",
             "listening . . . . . ",
             "Transcribed text: \"Please search for a Ford F150 2018 model\"","Is this correct? Please type \"yes\" or \"no\"",
             "Great, you have selected the Ford F150 2018 model. What information would you like to find for you?",
             "Searching for relevant information . . . . . . . . . . . . .",
-            "According to the \"2018 Ford F-150 Performance Review\" from cars.usnews.com, here is some information relating to \"performace\" for your selected car:\n" +
+            "According to the \"2018 Ford F-150 Performance Review\" from cars.usnews.com, here is some information relating to \"performance\" for your selected car:\n\n" +
                     "\"The F-150 comes standard with a 3.3-liter V6 engine that puts out 290 horsepower and 265 pound-feet of torque. " +
-                    "Though it’s only the base engine, that doesn’t mean it’s bad. It still has plenty of power for daily driving, and many buyers will be perfectly happy sticking with this V6.\\n\" +\n" +
-                    "                \"For more power, you have several options. There’s a turbocharged, 2.7-liter V6 – one of two EcoBoost engines – " +
+                    "Though it’s only the base engine, that doesn’t mean it’s bad. It still has plenty of power for daily driving, and many buyers will be perfectly happy sticking with this V6.\n" +
+                    "For more power, you have several options. There’s a turbocharged, 2.7-liter V6 – one of two EcoBoost engines – " +
                     "that produces 325 horsepower and 400 pound-feet of torque. There’s one V8 in the lineup too. " +
                     "It’s a 5.0-liter engine that makes 395 horsepower and 400 pound-feet of torque." +
                     " These engines are more capable, and the V8 has a nice engine note.\"" +"\n\n"+
             "Any other information I can find for you?","Ok, please press \"Return\" or \"Enter\" to get back to the starting page"};
-    public static String[] imageScript = {"You have selected to search using image Search!"};
+    public static String[] imageScript = {"This appears to be a \"Volvo XC90 AWD SUV 2017 model. Is this correct?","Great! What information can I find for you?",
+    "Ok, le me find some information about price . . . .",
+    "according to \"https://cars.usnews.com\", the Volvo XC90 AWD SUV 2017 model IS #12 in Luxury Midsize SUVs.\n Average price paid ranged from \"$29,919 - $56,690 \".",
+    "Would you like any more information about this car?",
+    "Looking up safety information . . . . . ",
+    "Here some safety information I found from \"https://cars.usnews.com\":\n\n" +
+            "\"The Insurance Institute for Highway Safety named the XC90 a 2017 Top Safety Pick and gave it the highest rating of Good in all five safety categories. " +
+            "The National Highway Traffic Safety Administration gave the XC90 five out of five stars in frontal and side crash tests, along with four stars in the rollover test.\"",
+    "Would you like anymore information about this car?",
+            "Ok, please press \"Return\" to get back to the main page"};
     public static void setService(){
         IamAuthenticator authenticator = new IamAuthenticator(Apikey);
         discovery = new Discovery("2019-04-30", authenticator);
@@ -58,7 +72,7 @@ public class DiscoveryService implements Page{
 
     public DiscoveryService(DiscoveryGUI gui){
          voice=false;
-
+        img=false;
         ui = gui;
         setService();
         read = new ReadService();
@@ -83,8 +97,7 @@ public class DiscoveryService implements Page{
     }
 
     public void identifyPicture(String path){
-        plansPos++;
-        ui.addText(AIname + plans[plansPos] + "\n");
+        ui.addText(AIname + imageScript[imgPos] + "\n");
         ui.moveBarBottom();
     }
 
@@ -103,20 +116,33 @@ public class DiscoveryService implements Page{
         if (!question.isEmpty()) {
             ui.addText("User: " + question + "\n");
         }
+
         if(!voice) {
 
+            if(img){
+                if (imgPos < imageScript.length - 1) {
+                    imgPos++;
+                    ui.addText(AIname + imageScript[imgPos] + "\n");
 
+                    latestAnswer = imageScript[imgPos];
+                } else {
+                    img=false;
+                    four();
+                }
+            }
+            else {
+                if (plansPos < plans.length - 1) {
+                    plansPos++;
+                    ui.addText(AIname + plans[plansPos] + "\n");
 
-            if (plansPos < plans.length-1) {
-                plansPos++;
-                ui.addText(AIname + plans[plansPos] + "\n");
-
-                latestAnswer = plans[plansPos];
-            } else {
-                four();
+                    latestAnswer = plans[plansPos];
+                } else {
+                    four();
+                }
             }
 
         }
+
         else{
 
             if (scriptPos < voicescript.length-1) {
@@ -169,8 +195,9 @@ public class DiscoveryService implements Page{
 
     @Override
     public void two() {
+        img=true;
+        imgPos=0;
         choose = new FileChooser(this);
-        ui.addText(AIname+" \"Identifying car......\n\n\n\n\" +\n") ;
 
 
     }
@@ -183,6 +210,8 @@ public class DiscoveryService implements Page{
     @Override
     public void four() {
         plansPos=0;
+        voice=false;
+        img=false;
         ui.cleanText();
         ui.addText(AIname + plans[plansPos] + "\n");
     }
