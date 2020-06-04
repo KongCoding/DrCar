@@ -7,6 +7,7 @@ import java.awt.event.WindowListener;
 
 public class DiscoveryGUI {
     private Page discoveryControl;
+    private AISentences currentAImode;
     private JFrame frame;
     private JTextArea chat;
     private JTextField textInput;
@@ -14,6 +15,7 @@ public class DiscoveryGUI {
     //private JButton[] numbers;
     public DiscoveryGUI(){
         discoveryControl = new DiscoveryService(this);
+        currentAImode = new AskCarsName(this);
     }
 
     public void openGUI(){
@@ -75,6 +77,7 @@ public class DiscoveryGUI {
 
         //Initialize the content in Chat.
         discoveryControl.start();
+        //currentAImode.initialize();
     }
 
     /**
@@ -126,7 +129,10 @@ public class DiscoveryGUI {
         @Override
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
-                case "Enter": discoveryControl.next(); break;
+                case "Enter":
+                    discoveryControl.next();
+                    //currentAImode.enter();
+                    break;
                 case "Voice Input":
 
                         discoveryControl.one();
