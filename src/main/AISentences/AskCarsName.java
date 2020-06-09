@@ -28,10 +28,13 @@ public class AskCarsName implements AISentences{
         ui.addText(AIname + "Hello, I'm Dr. Car!. Which car would you like to know about?\n");
     }
 
+    /**
+     *
+     */
     @Override
-    public AISentences nextSentence(Object message) {
+    public void nextSentence() {
         //Link to next mode (with a given mode, ask different questions.)
-        return null;
+        ui.lockButtons(new int[]{0, 1, 2}, true);
     }
 
     @Override
@@ -45,6 +48,7 @@ public class AskCarsName implements AISentences{
         }
         if(findCar){
             System.out.println("Find");
+            ui.replacePage(new AskInfo(ui, carName));
         }else{
             for(int i = 0; i < companies.size() && !findCompany;i++){
                 findCompany = carName.toLowerCase().contains(companies.get(i).toLowerCase());

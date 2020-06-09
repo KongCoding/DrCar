@@ -12,7 +12,7 @@ public class DiscoveryGUI {
     private JTextArea chat;
     private JTextField textInput;
     private JComboBox<String> languageChooser;
-    //private JButton[] numbers;
+    private JButton[] rightButtons;
     public DiscoveryGUI(){
         discoveryControl = new DiscoveryService(this);
         currentAImode = new AskCarsName(this);
@@ -48,9 +48,9 @@ public class DiscoveryGUI {
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(4,1,4,4));
         //numbers = new JButton[4];
-        JButton one = new JButton("Voice Input");
-        one.addActionListener(BL);
-        numberPane.add(one);
+        JButton voiceInput = new JButton("Voice Input");
+        voiceInput.addActionListener(BL);
+        numberPane.add(voiceInput);
         JButton picture = new JButton("Load Icon");
         picture.addActionListener(BL);
         numberPane.add(picture);
@@ -60,6 +60,7 @@ public class DiscoveryGUI {
         JButton returnButton = new JButton("Return");
         returnButton.addActionListener(BL);
         numberPane.add(returnButton);
+        rightButtons = new JButton[]{voiceInput, picture, read, returnButton};
 
 //        for(int i = 1; i <= numbers.length; i++){
 //            JButton number = i != 4? new JButton("" + i):new JButton("Return");
@@ -78,6 +79,18 @@ public class DiscoveryGUI {
         //Initialize the content in Chat.
         discoveryControl.start();
         //currentAImode.initialize();
+    }
+
+    public void replacePage(AISentences newMode){
+        currentAImode.nextSentence();
+        currentAImode = newMode;
+        currentAImode.initialize();
+    }
+
+    public void lockButtons(int[] lockList, boolean lock){
+        for (int number: lockList) {
+            rightButtons[number].setEnabled(!lock);
+        }
     }
 
     /**
