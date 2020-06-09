@@ -8,6 +8,7 @@ import java.awt.event.WindowListener;
 public class DiscoveryGUI {
     private Page discoveryControl;
     private AISentences currentAImode;
+    private AskCarsName returnDestination;
     private JFrame frame;
     private JTextArea chat;
     private JTextField textInput;
@@ -15,7 +16,8 @@ public class DiscoveryGUI {
     private JButton[] rightButtons;
     public DiscoveryGUI(){
         discoveryControl = new DiscoveryService(this);
-        currentAImode = new AskCarsName(this);
+        returnDestination = new AskCarsName(this);
+        currentAImode = returnDestination;
     }
 
     public void openGUI(){
@@ -153,7 +155,11 @@ public class DiscoveryGUI {
                     break;
                 case "Load Icon": discoveryControl.two();break;
                 case "Read": discoveryControl.three();break;
-                case "Return": discoveryControl.four();break;
+                case "Return":
+                    discoveryControl.four();
+                    //currentAImode = returnDestination;
+                    //currentAImode.initialize();
+                    break;
                 default:break;
             }
         }

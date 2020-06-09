@@ -78,7 +78,7 @@ public class DiscoveryService implements Page{
         read = new ReadService();
     }
 //What are the minimum hardware requirements
-    private ArrayList<String> ask(String question){
+    public ArrayList<String> ask(String question){
         ArrayList<String> answers = new ArrayList<>();
         String answer = "Sorry, I don't know what you want.";
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(Environment, Collection);
