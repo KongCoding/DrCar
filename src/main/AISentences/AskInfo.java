@@ -14,6 +14,7 @@ public class AskInfo implements AISentences {
 
     private void askService(){
         String question = ui.getInput();
+        ui.addText("User: " + question + "\n");
         ui.cleanInput();
         //ArrayList<String> answer = discovery.ask(question);
         ArrayList<String> answer = new ArrayList<>(){{
@@ -27,11 +28,6 @@ public class AskInfo implements AISentences {
             for(int i = 0; i < answer.size();i++){
                 ui.addText((i + 1) + ". " + answer.get(i));
             }
-        }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
         ui.addText("");
         askUser();

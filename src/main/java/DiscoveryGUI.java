@@ -28,6 +28,7 @@ public class DiscoveryGUI {
         JPanel bottom = new JPanel();
         bottom.setLayout(new GridLayout(1,2,4,4));
         textInput = new JTextField(20);
+        textInput.addKeyListener(new KeyListen());
         JButton ask = new JButton("Enter");
         ask.addActionListener(BL);
         bottom.add(textInput);
@@ -113,6 +114,9 @@ public class DiscoveryGUI {
     public void addText(String newMessage){
         chat.append(newMessage + "\n");
     }
+    public void addTextWithTranslation(String newMessage){
+
+    }
     public void addTextLine(String newMessage){
         chat.append(newMessage);
     }
@@ -142,8 +146,8 @@ public class DiscoveryGUI {
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
                 case "Enter":
-                    discoveryControl.next();
-                    //currentAImode.enter();
+                    //discoveryControl.next();
+                    currentAImode.enter();
                     break;
                 case "Voice Input":
 
@@ -153,9 +157,9 @@ public class DiscoveryGUI {
                 case "Load Icon": discoveryControl.two();break;
                 case "Read": discoveryControl.three();break;
                 case "Return":
-                    discoveryControl.four();
-                    //currentAImode = returnDestination;
-                    //currentAImode.initialize();
+                    //discoveryControl.four();
+                    currentAImode = returnDestination;
+                    currentAImode.initialize();
                     break;
                 default:break;
             }
@@ -203,11 +207,14 @@ public class DiscoveryGUI {
         }
     }
 
-    class KeyL implements KeyListener{
+    /**
+     * This class describes what system should fo when user click "Enter" on keyboard.
+     */
+    class KeyListen implements KeyListener{
 
         @Override
         public void keyTyped(KeyEvent e) {
-            if(e.equals(KeyEvent.VK_ENTER)){
+            if(e.getKeyChar() == KeyEvent.VK_ENTER){
                 currentAImode.enter();
             }
         }
