@@ -22,9 +22,9 @@ public class AskInfo implements AISentences {
             add("B");
         }};
         if(answer.size() == 0){
-            ui.addText(AIname + "Sorry, I cannot answer your question. Please ask more specific.\n");
+            ui.addText(AIname + "Sorry, I do not understand this question. Please be more specific.\n");
         }else{
-            ui.addText(AIname + "There are totally " + answer.size() + " answers for your question: ");
+            ui.addText(AIname + "There are " + answer.size() + " answers for your question: ");
             for(int i = 0; i < answer.size();i++){
                 ui.addText((i + 1) + ". " + answer.get(i));
             }
@@ -35,7 +35,7 @@ public class AskInfo implements AISentences {
     }
 
     private void askUser(){
-        ui.addText(AIname + "What do you want to know about " + carName + "?\n");
+        ui.addText(AIname + "What would you like to know about " + carName + "?\n");
     }
 
     @Override
