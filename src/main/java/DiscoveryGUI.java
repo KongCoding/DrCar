@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class DiscoveryGUI {
-    private Page discoveryControl;
+    //private Page discoveryControl;
     private AISentences currentAImode;
     private AskCarsName returnDestination;
     private JFrame frame;
@@ -13,7 +13,7 @@ public class DiscoveryGUI {
     private JButton[] rightButtons;
     private TranslateService translation;
     public DiscoveryGUI(){
-        discoveryControl = new DiscoveryService(this);
+        //discoveryControl = new DiscoveryService(this);
         returnDestination = new AskCarsName(this);
         currentAImode = returnDestination;
         translation = new TranslateService();
@@ -82,8 +82,8 @@ public class DiscoveryGUI {
         frame.setVisible(true);
 
         //Initialize the content in Chat.
-        discoveryControl.start();
-        //currentAImode.initialize();
+        //discoveryControl.start();
+        currentAImode.initialize();
     }
 
     public void replacePage(AISentences newMode){
@@ -158,13 +158,18 @@ public class DiscoveryGUI {
                     break;
                 case "Voice Input":
 
-                        discoveryControl.one();
+                        //discoveryControl.one();
 
                     break;
-                case "Load Icon": discoveryControl.two();break;
-                case "Read": discoveryControl.three();break;
+                case "Load Icon":
+                    //discoveryControl.two();
+                    break;
+                case "Read":
+                    //discoveryControl.three();
+                    break;
                 case "Return":
                     //discoveryControl.four();
+                    lockButtons(new int[]{0,1,2}, false);
                     currentAImode = returnDestination;
                     currentAImode.initialize();
                     break;

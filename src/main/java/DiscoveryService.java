@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.lang.*;
 
 
-public class DiscoveryService implements Page{
+public class DiscoveryService{
 
     private static final String Apikey = "wyb2SZ175eQrG4-eFlz9uMnX9Xr36dAd2vCOetLjEtVG";
     private static final String URL = "https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/6b7aebbb-db7d-4618-80c5-ffeb06e9a064";
@@ -27,6 +27,7 @@ public class DiscoveryService implements Page{
     private int plansPos;
     private int scriptPos;
     private int imgPos;
+
     private static String[] plans = {"Hello, I'm Dr. Car!. What car would you like to know about?",
 
             "You have selected: 2017 Toyota Camry. What information would you like to know about this car?",
@@ -101,7 +102,6 @@ public class DiscoveryService implements Page{
         ui.moveBarBottom();
     }
 
-    @Override
     public void start() {
         //ui.addText("Eyes: Hi, what can I do for you?\n");
         //latestAnswer = "Hi, what can I do for you?";
@@ -109,7 +109,6 @@ public class DiscoveryService implements Page{
         ui.addText(AIname + ": " + plans[plansPos] + "\n");
     }
 
-    @Override
     public void next() {
         String question = ui.getInput();
         ui.cleanInput();
@@ -171,43 +170,22 @@ public class DiscoveryService implements Page{
     }
 
 
-    @Override
-    public void menu() {
-
-    }
-
-    public void getuserinput(){
-        String question = ui.getInput();
-        ui.cleanInput();
-        if (!question.isEmpty()) {
-            ui.addText("User: " + question + "\n");
-        }
-    }
-    @Override
     public void one()  {
         voice=true;
         scriptPos = 0;
         ui.addText(AIname + ": " + voicescript[scriptPos] + "\n");
-
-
-
     }
 
-    @Override
     public void two() {
         img=true;
         imgPos=0;
         choose = new FileChooser(this);
-
-
     }
 
-    @Override
     public void three() {
         read.Read(latestAnswer);
     }
 
-    @Override
     public void four() {
         plansPos=0;
         voice=false;
