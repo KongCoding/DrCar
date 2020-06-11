@@ -3,7 +3,9 @@ import com.ibm.watson.language_translator.v3.LanguageTranslator;
 import com.ibm.watson.language_translator.v3.model.TranslateOptions;
 import com.ibm.watson.language_translator.v3.model.TranslationResult;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class TranslateService implements Page {
@@ -13,6 +15,11 @@ public class TranslateService implements Page {
 
     private TranslationGUI ui;
     private static LanguageTranslator languageTranslator;
+    private Map<String, String> languageList = new HashMap<>(){{
+        put("Chinese", "zh");
+        put("Spanish", "es");
+        put("Japanese", "ja");
+    }};
     private static Set<String> modules;
 
     public static void setModules(){
@@ -48,6 +55,19 @@ public class TranslateService implements Page {
         ui = gui;
         setService();
         setModules();
+    }
+
+    public TranslateService(){
+        setService();
+        setModules();
+    }
+
+    public String translate(String message, String targetLanguage){
+        TranslateOptions translateOptions = new TranslateOptions.Builder().addText(message)
+                .modelId("en-" + languageList.get(targetLanguage)).build();
+        TranslationResult result = languageTranslator.translate(translateOptions)
+                .execute().getResult();
+        return result.getTranslations().get(0).getTranslation();
     }
 
     @Override

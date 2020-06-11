@@ -11,10 +11,12 @@ public class DiscoveryGUI {
     private JTextField textInput;
     private JComboBox<String> languageChooser;
     private JButton[] rightButtons;
+    private TranslateService translation;
     public DiscoveryGUI(){
         discoveryControl = new DiscoveryService(this);
         returnDestination = new AskCarsName(this);
         currentAImode = returnDestination;
+        translation = new TranslateService();
     }
 
     public void openGUI(){
@@ -31,6 +33,9 @@ public class DiscoveryGUI {
         textInput.addKeyListener(new KeyListen());
         JButton ask = new JButton("Enter");
         ask.addActionListener(BL);
+        String[] languages = {"English","Japanese", "Chinese", "Spanish"};
+        languageChooser = new JComboBox<>(languages);
+        bottom.add(languageChooser);
         bottom.add(textInput);
         bottom.add(ask);
         frame.add(bottom, BorderLayout.SOUTH);
@@ -115,7 +120,9 @@ public class DiscoveryGUI {
         chat.append(newMessage + "\n");
     }
     public void addTextWithTranslation(String newMessage){
-
+        String target = (String)languageChooser.getSelectedItem();
+        String translatedAnswer = target.equals("English") ? newMessage : translation.translate(newMessage, target);
+        chat.append(translatedAnswer + "\n");
     }
     public void addTextLine(String newMessage){
         chat.append(newMessage);

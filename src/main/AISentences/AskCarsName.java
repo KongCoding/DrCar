@@ -41,7 +41,7 @@ public class AskCarsName implements AISentences{
     public void enter() {
         String carName = ui.getInput();
         ui.cleanInput();
-        ui.addText(carName);
+        ui.addText("User: " + carName);
         boolean findCar = false, findCompany = false;
         int company = -1;
         for(int i = 0; i < cars.size() && !findCar; i++){
@@ -64,7 +64,7 @@ public class AskCarsName implements AISentences{
     }
 
     private void carList(int company){
-        ui.addText("I know multiple types of cars belong to " + companies.get(company) + ".");
+        ui.addText(AIname + "I know multiple types of cars belong to " + companies.get(company) + ".");
         ui.addText("Please choose the car you want to know and type its whole name: ");
         for(int i = 0; i < cars.size();i++){
             if(cars.get(i).contains(companies.get(company))){
@@ -75,7 +75,7 @@ public class AskCarsName implements AISentences{
     }
 
     private void misunderstand() {
-        ui.addText("Sorry, I cannot identify this car. Please give me concrete names\n");
+        ui.addTextWithTranslation(AIname + "Sorry, I cannot identify this car. Please give me concrete names\n");
         sayHello();
     }
 }
