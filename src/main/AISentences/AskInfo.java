@@ -18,15 +18,15 @@ public class AskInfo implements AISentences {
         ui.cleanInput();
         //ArrayList<String> answer = discovery.ask(question);
         ArrayList<String> answer = new ArrayList<>(){{
-            add("A");
+            add("The top speed is 30 mph.");
             add("B");
         }};
         if(answer.size() == 0){
-            ui.addText(AIname + "Sorry, I do not understand this question. Please be more specific.\n");
+            ui.addTextWithTranslation(AIname + "Sorry, I do not understand this question. Please be more specific.\n");
         }else{
-            ui.addText(AIname + "There are " + answer.size() + " answers for your question: ");
+            ui.addTextWithTranslation(AIname + "There are " + answer.size() + " answers for your question: ");
             for(int i = 0; i < answer.size();i++){
-                ui.addText((i + 1) + ". " + answer.get(i));
+                ui.addTextWithTranslation((i + 1) + ". " + answer.get(i));
             }
         }
         ui.addText("");
@@ -35,14 +35,13 @@ public class AskInfo implements AISentences {
     }
 
     private void askUser(){
-        ui.addText(AIname + "What would you like to know about " + carName + "?\n");
+        ui.addTextWithTranslation(AIname + "What would you like to know about " + carName + "?\n");
     }
 
     @Override
     public void initialize() {
         ui.cleanInput();
         askUser();
-        System.out.println("Success");
     }
 
     @Override

@@ -25,7 +25,7 @@ public class Welcome implements Page {
 //        QAMain.page = new Menu(ui);
 //        QAMain.page.start();
         //directly opens the dr. car ui
-        DiscoveryGUI QAService = new DiscoveryGUI();
+        DiscoveryGUI QAService = new DiscoveryGUI(true);
         QAService.openGUI();
         start();
     }

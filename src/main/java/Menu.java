@@ -30,7 +30,7 @@ public class Menu implements Page {
                 translateService.openGUI();
                 start(); break;
             case 2:
-                DiscoveryGUI QAService = new DiscoveryGUI();
+                DiscoveryGUI QAService = new DiscoveryGUI(true);
                 QAService.openGUI();
                 start();break;
             case 3: break;

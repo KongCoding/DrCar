@@ -85,11 +85,10 @@ public class DiscoveryService{
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(Environment, Collection);
         queryBuilder.naturalLanguageQuery(question);
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
-        StringBuilder sb = new StringBuilder();
         for(QueryResult result: queryResponse.getResults()){
             answers.add((String)result.get("text"));
         }
-        if(answers.size() == 0){answers.add(answer);}
+//        if(answers.size() == 0){answers.add(answer);}
 //        System.out.println(queryResponse.getPassages().size());
 //        for (QueryPassages passages:queryResponse.getPassages()) {
 //            System.out.println(passages.getPassageText() + "\n");
@@ -100,13 +99,6 @@ public class DiscoveryService{
     public void identifyPicture(String path){
         ui.addText(AIname + imageScript[imgPos] + "\n");
         ui.moveBarBottom();
-    }
-
-    public void start() {
-        //ui.addText("Eyes: Hi, what can I do for you?\n");
-        //latestAnswer = "Hi, what can I do for you?";
-        plansPos = 0;
-        ui.addText(AIname + ": " + plans[plansPos] + "\n");
     }
 
     public void next() {
@@ -154,19 +146,6 @@ public class DiscoveryService{
             }
 
         }
-//        ArrayList<String> answers = ask(question);
-//        ui.addText("Eyes:\n");
-//        int i = 1;
-//        for(String answer : answers){
-//            if(answer.equalsIgnoreCase("Sorry, I don't know what you want.")){
-//                ui.addText(answer);
-//            }else{
-//                ui.addText(i + ": " + answer + "\n");
-//            }
-//            i++;
-//        }
-//        ui.addText("Eyes: Hi, what can I do for you?");
-//        ui.addText("\n");
     }
 
 

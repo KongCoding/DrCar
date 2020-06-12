@@ -64,8 +64,8 @@ public class AskCarsName implements AISentences{
     }
 
     private void carList(int company){
-        ui.addText(AIname + "I know multiple types of cars belong to " + companies.get(company) + ".");
-        ui.addText("Please choose the car you want to know and type its whole name: ");
+        ui.addTextWithTranslation(AIname + "I know multiple types of cars belong to " + companies.get(company) + ".");
+        ui.addTextWithTranslation("Please choose the car you want to know and type its whole name: ");
         for(int i = 0; i < cars.size();i++){
             if(cars.get(i).contains(companies.get(company))){
                 ui.addText("\t" + cars.get(i));

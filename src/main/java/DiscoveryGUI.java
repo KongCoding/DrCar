@@ -7,16 +7,18 @@ public class DiscoveryGUI {
     private AISentences currentAImode;
     private AskCarsName returnDestination;
     private JFrame frame;
-    private JTextArea chat;
+    protected JTextArea chat;
     private JTextField textInput;
-    private JComboBox<String> languageChooser;
+    protected JComboBox<String> languageChooser;
     private JButton[] rightButtons;
     private TranslateService translation;
-    public DiscoveryGUI(){
+    private boolean formalUse;
+    public DiscoveryGUI(boolean forUse){
         //discoveryControl = new DiscoveryService(this);
         returnDestination = new AskCarsName(this);
         currentAImode = returnDestination;
         translation = new TranslateService();
+        formalUse = forUse;
     }
 
     public void openGUI(){
@@ -79,7 +81,7 @@ public class DiscoveryGUI {
         //Set frame's size and make it visible.
         frame.setBounds(400,300,600,400);
         //f.pack();
-        frame.setVisible(true);
+        frame.setVisible(formalUse);
 
         //Initialize the content in Chat.
         //discoveryControl.start();
@@ -113,17 +115,23 @@ public class DiscoveryGUI {
 
 
     /**
-     * This method will publish both user's and AI's messages on the chat.
+     * This method will publish both users' and AI's messages on the chat.
      * @param newMessage The message that is going to be published.
      */
     public void addText(String newMessage){
         chat.append(newMessage + "\n");
     }
+
+    /**
+     * This method will publish the method in selected language.
+     * @param newMessage The message to be sent (English version)
+     */
     public void addTextWithTranslation(String newMessage){
         String target = (String)languageChooser.getSelectedItem();
         String translatedAnswer = target.equals("English") ? newMessage : translation.translate(newMessage, target);
         chat.append(translatedAnswer + "\n");
     }
+
     public void addTextLine(String newMessage){
         chat.append(newMessage);
     }
