@@ -28,7 +28,7 @@ public class FileChooser {
         JMenuItem determine = new JMenuItem("Identify this picture");
         determine.addActionListener(event -> {
             if(!path.equals("")){
-                discoveryControl.identifyPicture(path);
+                //discoveryControl.identifyPicture(path);
                 path = "";
                 jf.setVisible(false);
             }

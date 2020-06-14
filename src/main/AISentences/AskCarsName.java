@@ -5,7 +5,7 @@ public class AskCarsName implements AISentences{
 
     private static final String AIname = "Dr. Car: ";
     private static List<String> cars = new ArrayList<>(){{
-        add("Volvo XC40");
+        add("Volvo XC90");
         add("Volvo XC60");
     }};
     private static List<String> companies = new ArrayList<>(){{
@@ -46,6 +46,8 @@ public class AskCarsName implements AISentences{
         int company = -1;
         for(int i = 0; i < cars.size() && !findCar; i++){
             findCar = cars.get(i).equalsIgnoreCase(carName);
+            if(findCar)
+                carName = cars.get(i);
         }
         if(findCar){
             System.out.println("Find");

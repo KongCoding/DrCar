@@ -9,18 +9,18 @@ public class AskInfo implements AISentences {
     public AskInfo(DiscoveryGUI gui, String name){
         ui = gui;
         carName = name;
-        //discovery = new DiscoveryService(name); //ready for connect to service.
+        discovery = new DiscoveryService(name); //ready for connect to service.
     }
 
     private void askService(){
         String question = ui.getInput();
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
-        //ArrayList<String> answer = discovery.ask(question);
-        ArrayList<String> answer = new ArrayList<>(){{
-            add("The top speed is 30 mph.");
-            add("B");
-        }};
+        ArrayList<String> answer = discovery.ask(question);
+//        ArrayList<String> answer = new ArrayList<>(){{
+//            add("The top speed is 30 mph.");
+//            add("B");
+//        }};
         if(answer.size() == 0){
             ui.addTextWithTranslation(AIname + "Sorry, I do not understand this question. Please be more specific.\n");
         }else{
