@@ -1,6 +1,7 @@
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.watson.discovery.v1.Discovery;
 import com.ibm.watson.discovery.v1.model.QueryOptions;
+import com.ibm.watson.discovery.v1.model.QueryPassages;
 import com.ibm.watson.discovery.v1.model.QueryResponse;
 import com.ibm.watson.discovery.v1.model.QueryResult;
 
@@ -14,7 +15,8 @@ public class DiscoveryService{
     private static final String Apikey = "wyb2SZ175eQrG4-eFlz9uMnX9Xr36dAd2vCOetLjEtVG";
     private static final String URL = "https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/6b7aebbb-db7d-4618-80c5-ffeb06e9a064";
     private static final String Environment = "4aa11f0e-787b-41c5-ac74-f19435b97a2e";
-    private static final String Collection = "69e12469-4a83-4a75-96db-7f835148d78b";
+    private static final String Collection = "0ea5c731-6289-46cd-8060-85e19c570880";
+    private static final String filter = "extracted_metadata.filename:";
 
     private FileChooser choose;
     private DiscoveryGUI ui;
@@ -71,6 +73,15 @@ public class DiscoveryService{
         discovery.setServiceUrl(URL);
     }
 
+//    public static void main(String[] args) {
+//        DiscoveryService ds = new DiscoveryService(null);
+//        ArrayList<String> answer = ds.ask("What is its torque");
+//        for (String s: answer
+//             ) {
+//            System.out.println(s);
+//        }
+//    }
+
     public DiscoveryService(DiscoveryGUI gui){
          voice=false;
         img=false;
@@ -84,14 +95,13 @@ public class DiscoveryService{
         String answer = "Sorry, I don't know what you want.";
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(Environment, Collection);
         queryBuilder.naturalLanguageQuery(question);
+        queryBuilder.filter(filter + "\"XC90\"");
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
-        for(QueryResult result: queryResponse.getResults()){
-            answers.add((String)result.get("text"));
+        for(QueryPassages passage:queryResponse.getPassages()){
+            answers.add(passage.getPassageText());
         }
-//        if(answers.size() == 0){answers.add(answer);}
-//        System.out.println(queryResponse.getPassages().size());
-//        for (QueryPassages passages:queryResponse.getPassages()) {
-//            System.out.println(passages.getPassageText() + "\n");
+//        for(QueryResult result: queryResponse.getResults()){
+//            answers.add((String)result.get("text"));
 //        }
         return answers;
     }
