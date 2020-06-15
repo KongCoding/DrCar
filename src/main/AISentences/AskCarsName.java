@@ -7,10 +7,14 @@ public class AskCarsName implements AISentences{
     private static List<String> cars = new ArrayList<>(){{
         add("Volvo XC90");
         add("Volvo XC60");
+        add("Volvo XC40");
     }};
     private static List<String> companies = new ArrayList<>(){{
             add("Volvo");
-            add("Other companies");
+            add("Other company1");
+            add("Other company2");
+            add("Other company3");
+            add("Other company4");
     }};
     private DiscoveryGUI ui;
     public AskCarsName(DiscoveryGUI gui){

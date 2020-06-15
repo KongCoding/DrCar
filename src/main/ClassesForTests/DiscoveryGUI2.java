@@ -24,4 +24,11 @@ public class DiscoveryGUI2 extends DiscoveryGUI {
     public void setLanguage(String language){
         languageChooser = new JComboBox<>(new String[]{language});
     }
+
+    public void userInput(String message){textInput.setText("");}
+
+    public boolean getRightButtonsState(int number){
+        JButton button = rightButtons[number];
+        return button.isEnabled();
+    }
 }

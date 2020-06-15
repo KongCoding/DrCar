@@ -106,15 +106,6 @@ public class DiscoveryService{
         collectionID = collection.element("collection").getText();
     }
 
-//    public static void main(String[] args) {
-//        DiscoveryService ds = new DiscoveryService(null);
-//        ArrayList<String> answer = ds.ask("What is its torque");
-//        for (String s: answer
-//             ) {
-//            System.out.println(s);
-//        }
-//    }
-
     public DiscoveryService(String carName){
 //        voice=false;
 //        img=false;

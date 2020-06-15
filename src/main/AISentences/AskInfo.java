@@ -17,10 +17,6 @@ public class AskInfo implements AISentences {
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
         ArrayList<String> answer = discovery.ask(question);
-//        ArrayList<String> answer = new ArrayList<>(){{
-//            add("The top speed is 30 mph.");
-//            add("B");
-//        }};
         if(answer.size() == 0){
             ui.addTextWithTranslation(AIname + "Sorry, I do not understand this question. Please be more specific.\n");
         }else{
@@ -29,6 +25,7 @@ public class AskInfo implements AISentences {
                 ui.addTextWithTranslation((i + 1) + ". " + answer.get(i));
             }
         }
+        ui.moveBarBottom();
         ui.addText("");
         askUser();
 

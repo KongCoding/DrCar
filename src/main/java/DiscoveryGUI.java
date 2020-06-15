@@ -8,9 +8,9 @@ public class DiscoveryGUI {
     private AskCarsName returnDestination;
     private JFrame frame;
     protected JTextArea chat;
-    private JTextField textInput;
+    protected JTextField textInput;
     protected JComboBox<String> languageChooser;
-    private JButton[] rightButtons;
+    protected JButton[] rightButtons;
     private TranslateService translation;
     private boolean formalUse;
     public DiscoveryGUI(boolean forUse){
