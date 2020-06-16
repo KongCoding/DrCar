@@ -8,7 +8,7 @@ public class AskCarsName implements AISentences{
         add("Volvo XC90");
         add("Volvo XC60");
         add("Volvo XC40");
-        add("Me");
+        add("Mercedes Benz E-Class");
     }};
     private static List<String> companies = new ArrayList<>(){{
             add("Volvo");
