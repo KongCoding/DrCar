@@ -6,11 +6,11 @@
         <collection>efb07e18-52ad-4867-9030-1fbd8749276e</collection>
     </volvo>
     <honda></honda>
-    <benz>
-        <api></api>
-        <url></url>
-        <environment></environment>
-        <collection></collection>
-    </benz>
+    <mercedes-benz>
+        <api>WUoQNMaKum0hKJe0dXbGJIoPQr4BYs1ZcI2roabfSQS7</api>
+        <url>https://api.us-south.discovery.watson.cloud.ibm.com/instances/167f13e7-f843-4639-b17f-d68c9bd9d2dd</url>
+        <environment>19f90db6-7803-4f78-ab0d-397c6fa888a0</environment>
+        <collection>014bbdd5-3ead-4b26-9a55-cc30008df968</collection>
+    </mercedes-benz>
     <more-companies></more-companies>
 </cars>

@@ -11,8 +11,24 @@
         <company>volvo</company>
         <filter>XC90</filter>
     </volvo-xc90>
+    <mercedes-benz-a-class>
+        <company>mercedes-benz</company>
+        <filter>A-Class</filter>
+    </mercedes-benz-a-class>
+    <mercedes-benz-c-class>
+        <company>mercedes-benz</company>
+        <filter>C-Class</filter>
+    </mercedes-benz-c-class>
     <mercedes-benz-e-class>
-        <company>benz</company>
+        <company>mercedes-benz</company>
         <filter>E-Class</filter>
     </mercedes-benz-e-class>
+    <mercedes-benz-glc>
+        <company>mercedes-benz</company>
+        <filter>GLC</filter>
+    </mercedes-benz-glc>
+    <mercedes-benz-gle>
+        <company>mercedes-benz</company>
+        <filter>GLE</filter>
+    </mercedes-benz-gle>
 </cars>
