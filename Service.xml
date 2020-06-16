@@ -6,5 +6,11 @@
         <collection>efb07e18-52ad-4867-9030-1fbd8749276e</collection>
     </volvo>
     <honda></honda>
+    <benz>
+        <api></api>
+        <url></url>
+        <environment></environment>
+        <collection></collection>
+    </benz>
     <more-companies></more-companies>
 </cars>

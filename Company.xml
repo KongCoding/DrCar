@@ -11,6 +11,8 @@
         <company>volvo</company>
         <filter>XC90</filter>
     </volvo-xc90>
-    <more>
-    </more>
+    <benz-cabriolet>
+        <company>benz</company>
+        <filter>E-Class</filter>
+    </benz-cabriolet>
 </cars>
