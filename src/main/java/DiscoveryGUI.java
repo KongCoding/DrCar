@@ -30,7 +30,7 @@ public class DiscoveryGUI {
 
         //Set the bottom panel = {TextField, 1 button}
         JPanel bottom = new JPanel();
-        bottom.setLayout(new GridLayout(1,2,4,4));
+        bottom.setLayout(new GridLayout(1,3,4,4));
         textInput = new JTextField(20);
         textInput.addKeyListener(new KeyListen());
         JButton ask = new JButton("Enter");
@@ -68,14 +68,6 @@ public class DiscoveryGUI {
         returnButton.addActionListener(BL);
         numberPane.add(returnButton);
         rightButtons = new JButton[]{voiceInput, picture, read, returnButton};
-
-//        for(int i = 1; i <= numbers.length; i++){
-//            JButton number = i != 4? new JButton("" + i):new JButton("Return");
-//            if(i == 3){number = new JButton("Read");}
-//            number.addActionListener(BL);
-//            numberPane.add(number);
-//            numbers[i - 1] = number;
-//        }
         frame.add(numberPane, BorderLayout.EAST);
 
         //Set frame's size and make it visible.
