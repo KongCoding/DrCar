@@ -10,7 +10,6 @@ public class ReadService {
     private static final String Apikey = "tEL_HsyVts87fP3YmKAdzXDS9A2CEqkfB3snpFLEU361";
     private static final String URL = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/d1bd69e2-bbc2-4dcd-9b3c-2b21925f7c83";
 
-    private String dramaSentence = "Please enter the information you would like to access. If you would like to search other cars, please click \"Return\"";
     private TextToSpeech textToSpeech;
     public ReadService(){
         IamAuthenticator authenticator1 = new IamAuthenticator(Apikey);

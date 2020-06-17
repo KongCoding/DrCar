@@ -22,6 +22,7 @@ public class AskCarsName implements AISentences{
             add("Other company4");
     }};
     private DiscoveryGUI ui;
+    private String sentenceToRead;
     public AskCarsName(DiscoveryGUI gui){
         ui = gui;
     }
@@ -34,7 +35,8 @@ public class AskCarsName implements AISentences{
     }
 
     private void sayHello(){
-        ui.addText(AIname + "Hello, I'm Dr. Car!. Which car would you like to know about?\n");
+        sentenceToRead = "Hello, I'm Dr. Car!. Which car would you like to know about?\n";
+        ui.addText(AIname + sentenceToRead);
     }
 
     /**
@@ -43,7 +45,7 @@ public class AskCarsName implements AISentences{
     @Override
     public void nextSentence() {
         //Link to next mode (with a given mode, ask different questions.)
-        ui.lockButtons(new int[]{0, 1, 2}, true);
+        ui.lockButtons(new int[]{0, 1}, true);
     }
 
     @Override
@@ -74,9 +76,17 @@ public class AskCarsName implements AISentences{
         }
     }
 
+    @Override
+    public String read() {
+        return sentenceToRead;
+    }
+
     private void carList(int company){
-        ui.addTextWithTranslation(AIname + "I know multiple types of cars belong to " + companies.get(company) + ".");
-        ui.addTextWithTranslation("Please choose the car you want to know and type its whole name: ");
+        sentenceToRead = "I know multiple types of cars belong to " + companies.get(company) + ".";
+        String temp = "Please choose the car you want to know and type its whole name: ";
+        ui.addTextWithTranslation(AIname + sentenceToRead);
+        ui.addTextWithTranslation(temp);
+        sentenceToRead += temp;
         for(int i = 0; i < cars.size();i++){
             if(cars.get(i).contains(companies.get(company))){
                 ui.addText("\t" + cars.get(i));
@@ -86,6 +96,7 @@ public class AskCarsName implements AISentences{
     }
 
     private void misunderstand() {
+        sentenceToRead = "Sorry, I cannot identify this car. Please give me concrete names\n";
         ui.addTextWithTranslation(AIname + "Sorry, I cannot identify this car. Please give me concrete names\n");
         sayHello();
     }

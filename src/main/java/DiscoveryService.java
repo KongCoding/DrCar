@@ -89,9 +89,6 @@ public class DiscoveryService{
         Element rootCompany = company.getRootElement();
         Element rootService = service.getRootElement();
         Element targetCar = rootCompany.element(carName.replaceAll(" ", "-").toLowerCase());
-
-        System.out.println("Target = " + (targetCar == null));
-
         String collectionName = targetCar.element("company").getText();
         filter = targetCar.element("filter").getText();
 

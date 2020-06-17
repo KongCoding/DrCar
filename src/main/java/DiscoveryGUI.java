@@ -12,12 +12,14 @@ public class DiscoveryGUI {
     protected JComboBox<String> languageChooser;
     protected JButton[] rightButtons;
     private TranslateService translation;
+    private ReadService reading;
     private boolean formalUse;
     public DiscoveryGUI(boolean forUse){
         //discoveryControl = new DiscoveryService(this);
         returnDestination = new AskCarsName(this);
         currentAImode = returnDestination;
         translation = new TranslateService();
+        reading = new ReadService();
         formalUse = forUse;
     }
 
@@ -165,7 +167,8 @@ public class DiscoveryGUI {
                     //discoveryControl.two();
                     break;
                 case "Read":
-                    //discoveryControl.three();
+                    String sentence = currentAImode.read();
+                    reading.Read(sentence);
                     break;
                 case "Return":
                     //discoveryControl.four();

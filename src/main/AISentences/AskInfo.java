@@ -5,6 +5,7 @@ public class AskInfo implements AISentences {
     private DiscoveryGUI ui;
     private String carName;
     private DiscoveryService discovery;
+    private String sentenceToRead;
 
     public AskInfo(DiscoveryGUI gui, String name){
         ui = gui;
@@ -18,21 +19,31 @@ public class AskInfo implements AISentences {
         ui.cleanInput();
         ArrayList<String> answer = discovery.ask(question);
         if(answer.size() == 0){
-            ui.addTextWithTranslation(AIname + "Sorry, I do not understand this question. Please be more specific.\n");
+            sentenceToRead = "Sorry, I can't answer this question. Please be more specific.\n";
+            ui.addTextWithTranslation(AIname + sentenceToRead);
         }else{
             ui.addTextWithTranslation(AIname + "There are " + answer.size() + " answers for your question: ");
+            sentenceToRead = "The first answer is " + answer.get(0);
             for(int i = 0; i < answer.size();i++){
                 ui.addTextWithTranslation((i + 1) + ". " + answer.get(i));
             }
         }
         ui.moveBarBottom();
         ui.addText("");
-        askUser();
+        askUserTimeBox2();
+        //askUser();
+    }
 
+    /**
+     * Will be deleted after TimeBox2
+     */
+    private void askUserTimeBox2(){
+        ui.addTextWithTranslation(AIname + "What would you like to know about " + carName + "?\n");
     }
 
     private void askUser(){
-        ui.addTextWithTranslation(AIname + "What would you like to know about " + carName + "?\n");
+        sentenceToRead = "What would you like to know about " + carName + "?\n";
+        ui.addTextWithTranslation(AIname + sentenceToRead);
     }
 
     @Override
@@ -43,11 +54,16 @@ public class AskInfo implements AISentences {
 
     @Override
     public void nextSentence() {
-        ui.lockButtons(new int[]{0,1,2}, false);
+        ui.lockButtons(new int[]{0,1}, false);
     }
 
     @Override
     public void enter() {
         askService();
+    }
+
+    @Override
+    public String read() {
+        return sentenceToRead;
     }
 }
