@@ -89,6 +89,8 @@ public class DiscoveryService{
         Element rootCompany = company.getRootElement();
         Element rootService = service.getRootElement();
         Element targetCar = rootCompany.element(carName.replaceAll(" ", "-").toLowerCase());
+        if(targetCar == null)
+            Emergency.emergencyPlan("We cannot find the database of this car");
         String collectionName = targetCar.element("company").getText();
         filter = targetCar.element("filter").getText();
 

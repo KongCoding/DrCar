@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class DiscoveryGUI {
-    //private Page discoveryControl;
     private AISentences currentAImode;
     private AskCarsName returnDestination;
     private JFrame frame;
@@ -15,7 +14,6 @@ public class DiscoveryGUI {
     private ReadService reading;
     private boolean formalUse;
     public DiscoveryGUI(boolean forUse){
-        //discoveryControl = new DiscoveryService(this);
         returnDestination = new AskCarsName(this);
         currentAImode = returnDestination;
         translation = new TranslateService();
@@ -159,9 +157,7 @@ public class DiscoveryGUI {
                     currentAImode.enter();
                     break;
                 case "Voice Input":
-
                         //discoveryControl.one();
-
                     break;
                 case "Load Icon":
                     //discoveryControl.two();
