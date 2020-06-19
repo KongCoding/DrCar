@@ -15,6 +15,7 @@ public class AnswersViewGUI {
     private int answersNumber;
     private TranslateService translation;
     private JButton[] buttons;
+    private ReadService reading;
 
 //    public static void main(String[] args) {
 //        ArrayList<String> j = new ArrayList<>(){{
@@ -28,6 +29,7 @@ public class AnswersViewGUI {
         answers = results;
         answersNumber = 0;
         translation = new TranslateService();
+        reading = new ReadService();
         openGUI();
     }
 
@@ -38,7 +40,7 @@ public class AnswersViewGUI {
         frame.addWindowListener(new WindowListen());
 
         JPanel bottom = new JPanel();
-        bottom.setLayout(new GridLayout(1,4,4,4));
+        bottom.setLayout(new GridLayout(1,5,4,4));
         String[] languages = {"English","Japanese", "Chinese", "Spanish"};
         language = new JComboBox<>(languages);
         JButton previous = new JButton("Previous");
@@ -47,9 +49,12 @@ public class AnswersViewGUI {
         next.addActionListener(abl);
         JButton close = new JButton("Close");
         close.addActionListener(abl);
+        JButton read = new JButton("Read");
+        read.addActionListener(abl);
         bottom.add(language);
         bottom.add(previous);
         bottom.add(next);
+        bottom.add(read);
         bottom.add(close);
         buttons = new JButton[]{previous, next};
         frame.add(bottom, BorderLayout.SOUTH);
@@ -67,7 +72,7 @@ public class AnswersViewGUI {
         frame.setVisible(true);
         addTextWithTranslation();
         buttons[0].setEnabled(false);
-        buttons[1].setEnabled(!(answersNumber == (answers.size() - 1)));
+        buttons[1].setEnabled(answersNumber < (answers.size() - 1));
     }
 
     private void addTextWithTranslation(){
@@ -97,6 +102,9 @@ public class AnswersViewGUI {
                     break;
                 case "Close":
                     frame.setVisible(false);
+                    break;
+                case "Read":
+                    reading.Read(answers.get(answersNumber));
                     break;
                 default:break;
             }

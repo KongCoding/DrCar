@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AskInfo implements AISentences {
@@ -6,6 +7,7 @@ public class AskInfo implements AISentences {
     private String carName;
     private DiscoveryService discovery;
     private String sentenceToRead;
+    private ArrayList<String> answer;
 
     public AskInfo(DiscoveryGUI gui, String name){
         ui = gui;
@@ -17,28 +19,23 @@ public class AskInfo implements AISentences {
         String question = ui.getInput();
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
-        ArrayList<String> answer = discovery.ask(question);
+        answer = discovery.ask(question);
         if(answer.size() == 0){
             sentenceToRead = "Sorry, I can't answer this question. Please be more specific.\n";
             ui.addTextWithTranslation(AIname + sentenceToRead);
         }else{
             ui.addTextWithTranslation(AIname + "There are " + answer.size() + " answers for your question: ");
             sentenceToRead = "The first answer is " + answer.get(0);
-            for(int i = 0; i < answer.size();i++){
-                ui.addTextWithTranslation((i + 1) + ". " + answer.get(i));
+            ui.addTextWithTranslation("1. " + answer.get(0));
+            ui.lockButtons(new int[]{3}, answer.size() == 1);
+            if(answer.size() > 1){
+                ui.addTextWithTranslation("\n" + AIname + "If you want to view other answers, please " +
+                        "click \"View Results\" on the right side");
             }
         }
         ui.moveBarBottom();
         ui.addText("");
-        askUserTimeBox2();
-        //askUser();
-    }
-
-    /**
-     * Will be deleted after TimeBox2
-     */
-    private void askUserTimeBox2(){
-        ui.addTextWithTranslation(AIname + "What would you like to know about " + carName + "?\n");
+        askUser();
     }
 
     private void askUser(){
@@ -65,5 +62,10 @@ public class AskInfo implements AISentences {
     @Override
     public String read() {
         return sentenceToRead;
+    }
+
+    @Override
+    public ArrayList<String> getAnswers() {
+        return answer;
     }
 }

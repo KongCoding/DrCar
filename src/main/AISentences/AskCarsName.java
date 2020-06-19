@@ -81,6 +81,11 @@ public class AskCarsName implements AISentences{
         return sentenceToRead;
     }
 
+    @Override
+    public ArrayList<String> getAnswers() {
+        return new ArrayList<>();
+    }
+
     private void carList(int company){
         sentenceToRead = "I know multiple types of cars belong to " + companies.get(company) + ".";
         String temp = "Please choose the car you want to know and type its whole name: ";

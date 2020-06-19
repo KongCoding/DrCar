@@ -53,7 +53,7 @@ public class DiscoveryGUI {
 
         //Set the right panel = {4 buttons}
         JPanel numberPane = new JPanel();
-        numberPane.setLayout(new GridLayout(4,1,4,4));
+        numberPane.setLayout(new GridLayout(5,1,4,4));
         //numbers = new JButton[4];
         JButton voiceInput = new JButton("Voice Input");
         voiceInput.addActionListener(BL);
@@ -64,10 +64,14 @@ public class DiscoveryGUI {
         JButton read = new JButton("Read");
         read.addActionListener(BL);
         numberPane.add(read);
+        JButton viewResult = new JButton("View Results");
+        viewResult.addActionListener(BL);
+        viewResult.setEnabled(false);
+        numberPane.add(viewResult);
         JButton returnButton = new JButton("Return");
         returnButton.addActionListener(BL);
         numberPane.add(returnButton);
-        rightButtons = new JButton[]{voiceInput, picture, read, returnButton};
+        rightButtons = new JButton[]{voiceInput, picture, read, viewResult, returnButton};
         frame.add(numberPane, BorderLayout.EAST);
 
         //Set frame's size and make it visible.
@@ -166,9 +170,13 @@ public class DiscoveryGUI {
                     String sentence = currentAImode.read();
                     reading.Read(sentence);
                     break;
+                case "View Results":
+                    new AnswersViewGUI(currentAImode.getAnswers());
+                    break;
                 case "Return":
                     //discoveryControl.four();
                     lockButtons(new int[]{0,1,2}, false);
+                    lockButtons(new int[]{3}, true);
                     currentAImode = returnDestination;
                     currentAImode.initialize();
                     break;
