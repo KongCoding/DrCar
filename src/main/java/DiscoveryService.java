@@ -72,7 +72,7 @@ public class DiscoveryService{
 //    "Would you like anymore information about this car?",
 //            "Ok, please press \"Return\" to get back to the main page"};
 
-    public Document load(String filename){
+    public static Document load(String filename){
         Document document = null;
         try {
             SAXReader saxReader = new SAXReader();

@@ -1,12 +1,16 @@
 import com.baidu.aip.imageclassify.AipImageClassify;
 import com.baidu.aip.util.Util;
+import org.dom4j.Document;
+import org.dom4j.Element;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class FileChooser {
     private String path = "";
@@ -18,19 +22,36 @@ public class FileChooser {
     }
 
     public static void main(String[] args) {
-        String fileName = "Honda-CRV.jpg";
+        String fileName = "2019-Volvo-XC90-Armoured-Heavy-01.jpg";
         AipImageClassify aip = new AipImageClassify("20497789", "1W5Y9LcU5Tb5CohbMOuywWOE",
                 "ce4fVAOohFw326Kv5BT6R0UjEB283Ia6");
         JSONObject res = null;
         try{
-            res = aip.carDetect(Util.readFileByBytes(fileName), new HashMap<>(){{put("language", "en");}});
+            res = aip.carDetect(Util.readFileByBytes(fileName), new HashMap<>());
         } catch (IOException e) {
             e.printStackTrace();
         }
         JSONArray result = res.getJSONArray("result");
         JSONObject first = (JSONObject) result.get(0);
         String name = (String)first.get("name");
+        System.out.println(EnglishName(name));
         System.out.println(name);
+    }
+
+    private static String EnglishName(String ChineseName){
+        String EnglishName = "";
+        Document dictionary = DiscoveryService.load("PictureIdentification.xml");
+        Element rootElement = dictionary.getRootElement();
+        List<Element> names = rootElement.elements("name");
+        boolean find = false;
+        for(int i = 0; i < names.size() && !find; i++){
+            Element name = names.get(i);
+            if(ChineseName.equalsIgnoreCase(name.element("original").getText())){
+                find = true;
+                EnglishName = name.element("translation").getText();
+            }
+        }
+        return EnglishName;
     }
 
     private void openGUI(){
