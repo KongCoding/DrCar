@@ -17,9 +17,9 @@ public class GUI {
         System.out.println("Hello, Welcome to Dr. Car!");
         f = new JFrame("Main Window");
         f.setLayout(new BorderLayout(30, 5));
-        ButtonListener bL = new ButtonListener(this);
+        ButtonListener bL = new ButtonListener();
         JPanel digitPanel = new JPanel();
-        digitPanel.setLayout(new GridLayout(1,4,4,4));
+        digitPanel.setLayout(new GridLayout(1,5,4,4));
         ButtonList = new JButton[4];
         for(int i = 1; i <= 4;i++){
             JButton numberButton = new JButton(""+i);
@@ -27,6 +27,11 @@ public class GUI {
             digitPanel.add(numberButton);
             ButtonList[i - 1] = numberButton;
         }
+
+        JButton webButton = new JButton("About Us");
+        webButton.addActionListener(bL);
+        digitPanel.add(webButton);
+
         f.add(digitPanel, BorderLayout.NORTH);
         JPanel newP = new JPanel();
         newP.setLayout(new GridLayout(1,1));
@@ -112,10 +117,6 @@ public class GUI {
         }
     }
     class ButtonListener implements ActionListener{
-        private GUI ui;
-        public ButtonListener(GUI gui){
-            ui = gui;
-        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -127,6 +128,7 @@ public class GUI {
                 case "2": QAMain.page.two();break;
                 case "3": QAMain.page.three();break;
                 case "4": QAMain.page.four();break;
+                case "About Us": Emergency.externalWebsite();
                 default:break;
             }
         }

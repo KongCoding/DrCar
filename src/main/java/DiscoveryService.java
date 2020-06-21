@@ -97,7 +97,7 @@ public class DiscoveryService{
 
 //        //Need Tests
 //        List<Element> filters = targetCar.elements("filter");
-//        filter = filters.get(0).getText();
+//        filter = filter1 + filters.get(0).getText();
 //        for(int i = 1; i < filters.size();i++){
 //            filter += "|" + filter1 + filters.get(i).getText();
 //        }
@@ -126,6 +126,7 @@ public class DiscoveryService{
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environment, collectionID);
         queryBuilder.naturalLanguageQuery(question);
         queryBuilder.filter(filter1 + filter);
+//        queryBuilder.filter(filter);
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
         for(QueryPassages passage:queryResponse.getPassages()){
             answers.add(passage.getPassageText());
