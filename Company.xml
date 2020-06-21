@@ -1,34 +1,34 @@
 <cars>
     <volvo-xc40>
         <company>volvo</company>
-        <filter>XC40</filter>
+        <filter>"XC40"</filter>
     </volvo-xc40>
     <volvo-xc60>
         <company>volvo</company>
-        <filter>XC60</filter>
+        <filter>"XC60"</filter>
     </volvo-xc60>
     <volvo-xc90>
         <company>volvo</company>
-        <filter>XC90</filter>
+        <filter>"XC90"</filter>
     </volvo-xc90>
     <mercedes-benz-a-class>
         <company>mercedes-benz</company>
-        <filter>A-Class</filter>
+        <filter>"A-Class"</filter>
     </mercedes-benz-a-class>
     <mercedes-benz-c-class>
         <company>mercedes-benz</company>
-        <filter>C-Class</filter>
+        <filter>"C-Class"</filter>
     </mercedes-benz-c-class>
     <mercedes-benz-e-class>
         <company>mercedes-benz</company>
-        <filter>E-Class</filter>
+        <filter>"E-Class"</filter>
     </mercedes-benz-e-class>
     <mercedes-benz-glc>
         <company>mercedes-benz</company>
-        <filter>GLC</filter>
+        <filter>"GLC"</filter>
     </mercedes-benz-glc>
     <mercedes-benz-gle>
         <company>mercedes-benz</company>
-        <filter>GLE</filter>
+        <filter>"GLE"</filter>
     </mercedes-benz-gle>
 </cars>

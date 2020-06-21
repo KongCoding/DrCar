@@ -10,6 +10,7 @@ import org.dom4j.io.SAXReader;
 import java.io.File;
 import java.util.ArrayList;
 import java.lang.*;
+import java.util.List;
 
 
 public class DiscoveryService{
@@ -18,7 +19,7 @@ public class DiscoveryService{
 //    private static final String URL = "https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/6b7aebbb-db7d-4618-80c5-ffeb06e9a064";
 //    private static final String Environment = "4aa11f0e-787b-41c5-ac74-f19435b97a2e";
 //    private static final String Collection = "0ea5c731-6289-46cd-8060-85e19c570880";
-    private static final String filter1 = "extracted_metadata.filename:\"";
+    private static final String filter1 = "extracted_metadata.filename:";
 
 //    private FileChooser choose;
     private String filter;
@@ -94,6 +95,13 @@ public class DiscoveryService{
         String collectionName = targetCar.element("company").getText();
         filter = targetCar.element("filter").getText();
 
+//        //Need Tests
+//        List<Element> filters = targetCar.elements("filter");
+//        filter = filters.get(0).getText();
+//        for(int i = 1; i < filters.size();i++){
+//            filter += "|" + filter1 + filters.get(i).getText();
+//        }
+
         Element collection = rootService.element(collectionName);
         String apikey = collection.element("api").getText();
         String url = collection.element("url").getText();
@@ -117,7 +125,7 @@ public class DiscoveryService{
         ArrayList<String> answers = new ArrayList<>();
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environment, collectionID);
         queryBuilder.naturalLanguageQuery(question);
-        queryBuilder.filter(filter1 + filter +"\"");
+        queryBuilder.filter(filter1 + filter);
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
         for(QueryPassages passage:queryResponse.getPassages()){
             answers.add(passage.getPassageText());

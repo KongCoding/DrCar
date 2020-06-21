@@ -21,7 +21,8 @@ public class AskInfo implements AISentences {
         ui.cleanInput();
         answer = discovery.ask(question);
         if(answer.size() == 0){
-            sentenceToRead = "Sorry, I can't answer this question. Please be more specific.\n";
+            sentenceToRead = "Sorry, I can't answer this question. Please be more specific. " +
+                    "What would you like to know about " + carName + "?\n";
             ui.addTextWithTranslation(AIname + sentenceToRead);
         }else{
             ui.addTextWithTranslation(AIname + "There are " + answer.size() + " answers for your question: ");
@@ -30,12 +31,12 @@ public class AskInfo implements AISentences {
             ui.lockButtons(new int[]{3}, answer.size() == 1);
             if(answer.size() > 1){
                 ui.addTextWithTranslation("\n" + AIname + "If you want to view other answers, please " +
-                        "click \"View Results\" on the right side");
+                        "click \"View Results\" on the right side. If not, what else would you want to know about " +
+                        carName + "?\n");
             }
         }
         ui.moveBarBottom();
         ui.addText("");
-        askUser();
     }
 
     private void askUser(){
