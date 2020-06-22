@@ -1,4 +1,5 @@
 <names>
+    <!--Make sure the text in translation node match one of elements in AskCarsName.cars-->
     <name>
         <original>沃尔沃XC60</original>
         <translation>Volvo XC60</translation>
