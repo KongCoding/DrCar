@@ -18,7 +18,7 @@ public class Emergency {
             Desktop desktop = Desktop.getDesktop();
             try{
                 //The URL will be changed to our own website in the future.
-                desktop.browse(new URI("www.google.com"));
+                desktop.browse(new URI("ServiceCrash.html"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             } catch (IOException e) {
