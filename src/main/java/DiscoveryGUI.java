@@ -122,12 +122,14 @@ public class DiscoveryGUI {
      * This method will publish the method in selected language.
      * @param newMessage The message to be sent (English version)
      */
+    @SuppressWarnings("all")
     public void addTextWithTranslation(String newMessage){
         String target = (String)languageChooser.getSelectedItem();
         String translatedAnswer = target.equals("English") ? newMessage : translation.translate(newMessage, target);
         chat.append(translatedAnswer + "\n");
     }
 
+    @SuppressWarnings("unused")
     public void addTextLine(String newMessage){
         chat.append(newMessage);
     }
@@ -164,7 +166,8 @@ public class DiscoveryGUI {
                         //discoveryControl.one();
                     break;
                 case "Load Icon":
-                    //discoveryControl.two();
+                    if(currentAImode instanceof AskCarsName)
+                        new FileChooser((AskCarsName) currentAImode);
                     break;
                 case "Read":
                     String sentence = currentAImode.read();

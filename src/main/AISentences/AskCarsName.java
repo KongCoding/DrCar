@@ -86,15 +86,25 @@ public class AskCarsName implements AISentences{
         return new ArrayList<>();
     }
 
+    public void pictureInput(String carName){
+        ui.addTextWithTranslation(AIname + "I think this car is " + carName +
+                ". If you are not looking for this car, please click \"Return\" and try again.\n");
+        if(cars.contains(carName)){
+            ui.replacePage(new AskInfo(ui, carName));
+        }else{
+            ui.addTextWithTranslation("Sorry, our database does not contain any information abotu " + carName);
+        }
+    }
+
     private void carList(int company){
         sentenceToRead = "I know multiple types of cars belong to " + companies.get(company) + ".";
         String temp = "Please choose the car you want to know and type its whole name: ";
         ui.addTextWithTranslation(AIname + sentenceToRead);
         ui.addTextWithTranslation(temp);
         sentenceToRead += temp;
-        for(int i = 0; i < cars.size();i++){
-            if(cars.get(i).contains(companies.get(company))){
-                ui.addText("\t" + cars.get(i));
+        for (String car : cars) {
+            if (car.contains(companies.get(company))) {
+                ui.addText("\t" + car);
             }
         }
         ui.addText("\n");
