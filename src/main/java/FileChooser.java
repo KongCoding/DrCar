@@ -29,7 +29,7 @@ public class FileChooser {
      */
     @SuppressWarnings("all")
     public static void main(String[] args) {
-        String fileName = "Pictures/Volvo/Train/2019-Volvo-XC90-Armoured-Heavy-01.jpg";
+        String fileName = "Pictures/Volvo/Train/2020-volvo-v60.png";
         AipImageClassify aip = new AipImageClassify("20497789", "1W5Y9LcU5Tb5CohbMOuywWOE",
                 "ce4fVAOohFw326Kv5BT6R0UjEB283Ia6");
         JSONObject res = null;
