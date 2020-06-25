@@ -15,12 +15,18 @@ public class AskCarsName implements AISentences{
         add("Mercedes Benz E-Class");
         add("Mercedes Benz GLC");
         add("Mercedes Benz GLE");
+        add("Honda CR-V");
+        add("Honda Insight");
+        add("Honda Fit");
+        add("Honda Ridgeline");
+        add("Honda Odyssey");
+
     }};
     private static List<String> companies = new ArrayList<>(){{
             add("Volvo");
             add("Mercedes");
             add("Benz");
-            add("Other company3");
+            add("Honda");
             add("Other company4");
     }};
     private DiscoveryGUI ui;

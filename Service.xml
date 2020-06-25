@@ -5,7 +5,12 @@
         <environment>4aa11f0e-787b-41c5-ac74-f19435b97a2e</environment>
         <collection>efb07e18-52ad-4867-9030-1fbd8749276e</collection>
     </volvo>
-    <honda></honda>
+    <honda>
+        <api>G_cexRjInfOmwc87oWhtG7i-ePiR7Er6RKVB_w0G0dnw</api>
+        <url>https://api.eu-gb.discovery.watson.cloud.ibm.com/instances/9d716a4d-3171-4738-a9a6-f17889538eeb</url>
+        <environment>e3392a39-04af-4bbe-9dbc-17603a0c6f60</environment>
+        <collection>98df680c-a208-47b9-89b1-7addd6dd7572</collection>
+    </honda>
     <mercedes-benz>
         <api>WUoQNMaKum0hKJe0dXbGJIoPQr4BYs1ZcI2roabfSQS7</api>
         <url>https://api.us-south.discovery.watson.cloud.ibm.com/instances/167f13e7-f843-4639-b17f-d68c9bd9d2dd</url>

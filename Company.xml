@@ -39,4 +39,24 @@
         <company>mercedes-benz</company>
         <filter>"GLE"</filter>
     </mercedes-benz-gle>
+    <honda-odyssey>
+        <company>honda</company>
+        <filter>odyssey</filter>
+    </honda-odyssey>
+    <honda-cr-v>
+        <company>honda</company>
+        <filter>cr-v</filter>
+    </honda-cr-v>
+    <honda-fit>
+        <company>honda</company>
+        <filter>fit</filter>
+    </honda-fit>
+    <honda-ridgeline>
+        <company>honda</company>
+        <filter>ridgeline</filter>
+    </honda-ridgeline>
+    <honda-insight>
+        <company>honda</company>
+        <filter>insight</filter>
+    </honda-insight>
 </cars>
