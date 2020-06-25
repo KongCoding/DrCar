@@ -9,6 +9,7 @@ public class AskCarsName implements AISentences{
         add("Volvo XC60");
         add("Volvo XC40");
         add("Volvo V60");
+        add("Volvo S90");
         add("Mercedes Benz A-Class");
         add("Mercedes Benz C-Class");
         add("Mercedes Benz E-Class");

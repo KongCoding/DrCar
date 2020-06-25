@@ -15,6 +15,10 @@
         <company>volvo</company>
         <filter>"V60"</filter>
     </volvo-v60>
+    <volvo-s90>
+        <company>volvo</company>
+        <filter>"S90"</filter>
+    </volvo-s90>
     <mercedes-benz-a-class>
         <company>mercedes-benz</company>
         <filter>"A-Class"</filter>
