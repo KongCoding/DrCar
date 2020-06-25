@@ -1,4 +1,4 @@
 language: java
 os: windows
 jdk:
-  - openjdk13
+  - jdk13.0.2
