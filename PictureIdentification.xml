@@ -1,5 +1,7 @@
 <names>
     <!--Make sure the text in translation node match one of elements in AskCarsName.cars-->
+    <!--Some car's translation is wrong in the real world. This is just make sure the program
+    can do the best to identify cars it knows.-->
     <name>
         <original>沃尔沃XC60</original>
         <translation>Volvo XC60</translation>
@@ -19,5 +21,41 @@
     <name>
         <original>沃尔沃V60</original>
         <translation>Volvo V60</translation>
+    </name>
+    <name>
+        <original>本田CR-V</original>
+        <translation>Honda CR-V</translation>
+    </name>
+    <name>
+        <original>本田Ridgeline</original>
+        <translation>Honda Ridgeline</translation>
+    </name>
+    <name>
+        <original>本田飞度</original>
+        <translation>Honda Fit</translation>
+    </name>
+    <name>
+        <original>荣威i6/(EV)</original>
+        <translation>Honda Insight</translation>
+    </name>
+    <name>
+        <original>雷诺塔利斯曼</original>
+        <translation>Honda Insight</translation>
+    </name>
+    <name>
+        <original>本田音赛特(Insight)</original>
+        <translation>Honda Insight</translation>
+    </name>
+    <name>
+        <original>本田CLARITY</original>
+        <translation>Honda Odyssey</translation>
+    </name>
+    <name>
+        <original>本田奥德赛</original>
+        <translation>Honda Odyssey</translation>
+    </name>
+    <name>
+        <original>本田Odyssey</original>
+        <translation>Honda Odyssey</translation>
     </name>
 </names>
