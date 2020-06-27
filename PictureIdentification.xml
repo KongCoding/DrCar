@@ -66,4 +66,24 @@
         <original>本田Odyssey</original>
         <translation>Honda Odyssey</translation>
     </name>
+    <name>
+        <original>奔驰a级</original>
+        <translation>Mercedes Benz A-Class</translation>
+    </name>
+    <name>
+        <original>奔驰c级</original>
+        <translation>Mercedes Benz C-Class</translation>
+    </name>
+    <name>
+        <original>奔驰e级</original>
+        <translation>Mercedes Benz E-Class</translation>
+    </name>
+    <name>
+        <original>奔驰glc级</original>
+        <translation>Mercedes Benz GLC</translation>
+    </name>
+    <name>
+        <original>奔驰gle级</original>
+        <translation>Mercedes Benz GLE</translation>
+    </name>
 </names>

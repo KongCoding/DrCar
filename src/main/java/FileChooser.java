@@ -29,7 +29,7 @@ public class FileChooser {
      */
     @SuppressWarnings("all")
     public static void main(String[] args) {
-        String fileName = "Pictures/Volvo/Train/Volvo-S90.png";
+        String fileName = "Pictures/Mercedes Benz/Train/Mercedes Benz E-Class.png";
         AipImageClassify aip = new AipImageClassify("20497789", "1W5Y9LcU5Tb5CohbMOuywWOE",
                 "ce4fVAOohFw326Kv5BT6R0UjEB283Ia6");
         JSONObject res = null;
