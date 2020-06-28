@@ -67,13 +67,10 @@ public class DealerDBQuery {
                 for (int i = 1; i <= columnCount; i++) {
                     String columnValue = rs.getString(i);
                     sb.append(columnValue);
-                    System.out.print(i + ". " + columnValue);
                     if (i < columnCount) {
-                        System.out.print(":  ");
                         sb.append(": ");
                     }
                 }
-                System.out.print("\n");
                 answer.add(sb.toString());
                 n++;
             }
