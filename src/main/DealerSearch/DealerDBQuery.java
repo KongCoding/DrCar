@@ -33,6 +33,7 @@ public class DealerDBQuery {
             System.out.println(e.getMessage());
             System.out
                     .println("There was a problem connecting to the database.");
+            Emergency.emergencyPlan("Sorry, we failed to connect to database");
         }
         return conn;
     }
