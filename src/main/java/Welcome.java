@@ -17,7 +17,15 @@ public class Welcome implements Page {
 
     @Override
     public void start() {
-        WelcomePage();
+        //WelcomePage();
+        ui.openPicture("2019-Volvo-XC90-Armoured-Heavy-01.jpg");
+        try{
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ui.OpenGUI();
+        menu();
     }
 
     @Override

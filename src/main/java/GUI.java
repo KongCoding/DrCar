@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GUI {
@@ -12,10 +15,12 @@ public class GUI {
     private JTextArea ta;
     private JTextField tf;
     private JButton[] ButtonList;
-    public void OpenGUI(){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Hello, Welcome to Dr. Car!");
+    public GUI(){
         f = new JFrame("Main Window");
+    }
+    public void OpenGUI(){
+        System.out.println("Hello, Welcome to Dr. Car!");
+        f.setContentPane(new JPanel());
         f.setLayout(new BorderLayout(30, 5));
         ButtonListener bL = new ButtonListener();
         JPanel digitPanel = new JPanel();
@@ -58,6 +63,25 @@ public class GUI {
         //f.pack();
         f.setVisible(true);
     }
+
+    public void openPicture(String fileName){
+        JPanel background = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                try{
+                    Image bg = ImageIO.read(new File(fileName));
+                    g.drawImage(bg, 0, 0, getWidth(), getHeight(), null);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        f.setContentPane(background);
+        f.setBounds(400,200,600,400);
+        f.setVisible(true);
+    }
+
+
 
     public void addText(String newMessage){
         ta.append(newMessage + "\n");
