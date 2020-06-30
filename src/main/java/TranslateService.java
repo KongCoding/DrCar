@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class TranslateService implements Page {
+public class TranslateService implements Translate, Page {
 
     private static final String Apikey = "KG1mjYk040N_3XnLQOdZkddfrkava-DU6U5OaiyETvbr";
     private static final String URL = "https://api.us-south.language-translator.watson.cloud.ibm.com/instances/47e63d6e-b7f2-4831-b5ea-7421d85f4a63";
@@ -22,19 +22,20 @@ public class TranslateService implements Page {
     }};
     private static Set<String> modules;
 
-    public static void setModules(){
+    private void setModules(){
         modules = new HashSet<>();
         modules.add("es-fr");
         modules.add("fr-es");
     }
 
-    public static void setService(){
+    @Override
+    public void setService(){
         IamAuthenticator authenticator = new IamAuthenticator(Apikey);
         languageTranslator = new LanguageTranslator("2018-05-01", authenticator);
         languageTranslator.setServiceUrl(URL);
     }
 
-    public static boolean CheckModule(String[] modeList){
+    private boolean CheckModule(String[] modeList){
         if(modeList[0].equals("en") || modeList[1].equals("en") || modules.contains(modeList[0] + "-" + modeList[1])){
             return true;
         }else{
@@ -42,7 +43,8 @@ public class TranslateService implements Page {
         }
     }
 
-    public static String Translate(String sentence, String mode){
+    @Override
+    public String Translate(String sentence, String mode){
         TranslateOptions translateOptions = new TranslateOptions.Builder().addText(sentence)
                 .modelId(mode).build();
         TranslationResult result = languageTranslator.translate(translateOptions)
@@ -62,7 +64,8 @@ public class TranslateService implements Page {
         setModules();
     }
 
-    public String translate(String message, String targetLanguage){
+    @Override
+    public String translateFromEnglish(String message, String targetLanguage){
         TranslateOptions translateOptions = new TranslateOptions.Builder().addText(message)
                 .modelId("en-" + languageList.get(targetLanguage)).build();
         TranslationResult result = languageTranslator.translate(translateOptions)

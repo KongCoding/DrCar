@@ -10,7 +10,7 @@ public class DiscoveryGUI {
     protected JTextField textInput;
     protected JComboBox<String> languageChooser;
     protected JButton[] rightButtons;
-    private TranslateService translation;
+    private Translate translation;
     private ReadService reading;
     private boolean formalUse;
     public DiscoveryGUI(boolean forUse){
@@ -125,7 +125,7 @@ public class DiscoveryGUI {
     @SuppressWarnings("all")
     public void addTextWithTranslation(String newMessage){
         String target = (String)languageChooser.getSelectedItem();
-        String translatedAnswer = target.equals("English") ? newMessage : translation.translate(newMessage, target);
+        String translatedAnswer = target.equals("English") ? newMessage : translation.translateFromEnglish(newMessage, target);
         chat.append(translatedAnswer + "\n");
     }
 

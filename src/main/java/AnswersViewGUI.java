@@ -78,7 +78,7 @@ public class AnswersViewGUI {
     private void addTextWithTranslation(){
         String newMessage = answers.get(answersNumber);
         String target = (String)language.getSelectedItem();
-        String translatedAnswer = target.equals("English") ? newMessage : translation.translate(newMessage, target);
+        String translatedAnswer = target.equals("English") ? newMessage : translation.translateFromEnglish(newMessage, target);
         chat.setText(translatedAnswer);
     }
 
