@@ -17,7 +17,7 @@ public class DiscoveryGUI {
         returnDestination = new AskCarsName(this);
         currentAImode = returnDestination;
         translation = new TranslateService();
-        reading = new ReadService();
+        reading = new ReadServiceIBM();
         formalUse = forUse;
     }
 

@@ -19,7 +19,7 @@ public class DealerGUI {
     private JComboBox<String> state;
 
     public DealerGUI(){
-        db = new DealerDBQuery();
+        db = new DealerDBQuerySQLite();
         openGUI();
     }
 
@@ -69,9 +69,12 @@ public class DealerGUI {
                     if(!carName.contains("Select") && !stateName.contains("Select")){
                         ArrayList<String> answer = db.Search(carName, stateName);;
                         StringBuilder sb = new StringBuilder();
-                        sb.append("We find " + answer.size() + " dealers for you:\n");
-                        for(String str: answer)
-                            sb.append(str + "\n");
+                        if(answer.size() > 0){
+                            sb.append("We find " + answer.size() + " dealers for you:\n");
+                            for(String str: answer)
+                                sb.append(str + "\n");
+                        }else
+                            sb.append("Sorry, we didn't find any dealers in this region");
                         chat.setText(sb.toString());
                     }
                     break;

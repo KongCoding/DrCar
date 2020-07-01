@@ -29,7 +29,7 @@ public class AnswersViewGUI {
         answers = results;
         answersNumber = 0;
         translation = new TranslateService();
-        reading = new ReadService();
+        reading = new ReadServiceIBM();
         openGUI();
     }
 
