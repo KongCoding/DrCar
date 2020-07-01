@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AskInfo implements AISentences {
@@ -12,7 +11,7 @@ public class AskInfo implements AISentences {
     public AskInfo(DiscoveryGUI gui, String name){
         ui = gui;
         carName = name;
-        discovery = new DiscoveryService(name); //ready for connect to service.
+        discovery = new DiscoveryServiceIBM(name); //ready for connect to service.
     }
 
     private void askService(){

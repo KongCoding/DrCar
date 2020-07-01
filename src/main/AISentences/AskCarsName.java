@@ -27,7 +27,6 @@ public class AskCarsName implements AISentences{
             add("Mercedes");
             add("Benz");
             add("Honda");
-            add("Other company4");
     }};
     private DiscoveryGUI ui;
     private String sentenceToRead;
@@ -43,7 +42,16 @@ public class AskCarsName implements AISentences{
     }
 
     private void sayHello(){
-        sentenceToRead = "Hello, I'm Dr. Car!. Which car would you like to know about?\n";
+        sentenceToRead = "Hello, I'm Dr. Car!. Which car would you like to know about? \n";
+        for(int space = 0; space < 14; space++)
+            sentenceToRead += " ";
+        sentenceToRead += "I know ";
+        for(int i = 0; i < companies.size();i++){
+            if(i == companies.size() - 1)
+                sentenceToRead += companies.get(i) + ".\n";
+            else if(!companies.get(i).equals("Mercedes"))
+                sentenceToRead += companies.get(i) + ", ";
+        }
         ui.addText(AIname + sentenceToRead);
     }
 
