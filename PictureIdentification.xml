@@ -86,4 +86,40 @@
         <original>奔驰gle级</original>
         <translation>Mercedes Benz GLE</translation>
     </name>
+    <name>
+        <original>雪佛兰科迈罗(Camaro)</original>
+        <translation>Chevrolet Camaro</translation>
+    </name>
+    <name>
+        <original>GMCSierra</original>
+        <translation>Chevrolet Colorado</translation>
+    </name>
+    <name>
+        <original>丰田Hilux</original>
+        <translation>Chevrolet Colorado</translation>
+    </name>
+    <name>
+        <original>雪佛兰Colorado</original>
+        <translation>Chevrolet Colorado</translation>
+    </name>
+    <name>
+        <original>雪佛兰库罗德</original>
+        <translation>Chevrolet Colorado</translation>
+    </name>
+    <name>
+        <original>雪佛兰科罗拉多</original>
+        <translation>Chevrolet Colorado</translation>
+    </name>
+    <name>
+        <original>雪佛兰Impala</original>
+        <translation>Chevrolet Impala</translation>
+    </name>
+    <name>
+        <original>雪佛兰迈锐宝</original>
+        <translation>Chevrolet Malibu</translation>
+    </name>
+    <name>
+        <original>雪佛兰Traverse</original>
+        <translation>Chevrolet Traverse</translation>
+    </name>
 </names>
