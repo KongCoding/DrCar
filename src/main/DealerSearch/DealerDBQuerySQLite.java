@@ -38,6 +38,7 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
         return conn;
     }
 
+
     public static void main(String[] args) {
         DealerDBQuerySQLite db = new DealerDBQuerySQLite();
         ArrayList<String> answer = db.Search("Volvo", "Ohio");
@@ -51,11 +52,31 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
         connection = InitializeConnection();
     }
 
+    @Override
+    public ArrayList<String> setStates(){
+        String sqlQuery = "select S.State\n" +
+                "from StateShortName as S";
+        ArrayList<String> states = new ArrayList<>(){{add("Select A State");}};
+        try{
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sqlQuery);
+            while(rs.next()){
+                states.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return states;
+    }
+
     @SuppressWarnings("all")
     public ArrayList<String> Search(String car, String state){
-        String sqlQuery = "select C.DealerName, C.Address\n" +
-                "from " + car + " as C, StateShortName as N\n" +
-                "where (C.State = '" + state + "' or N.ShortName = '" + state + "') and C.State = N.State";
+        String sqlQuery = "Select C.DealerName, C.Address, C.Phone\n";
+        sqlQuery += "from '"+ car + "' as C, StateShortName as N\n";
+        sqlQuery += "where C.State = '" + state + "' and C.State = N.State";
+//        String sqlQuery = "select C.DealerName, C.Address, C.Phone\n" +
+//                "from " + car + " as C, StateShortName as N\n" +
+//                "where (C.State = '" + state + "' or N.ShortName = '" + state + "') and C.State = N.State";
         ArrayList<String> answer = new ArrayList<>();
         try{
             Statement statement = connection.createStatement();
@@ -68,9 +89,10 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
                 for (int i = 1; i <= columnCount; i++) {
                     String columnValue = rs.getString(i);
                     sb.append(columnValue);
-                    if (i < columnCount) {
+                    if (i < columnCount - 1) {
                         sb.append(": ");
-                    }
+                    }else if(i == columnCount - 1)
+                        sb.append(", ");
                 }
                 answer.add(sb.toString());
                 n++;

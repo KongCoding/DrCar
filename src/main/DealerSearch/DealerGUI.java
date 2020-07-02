@@ -20,10 +20,11 @@ public class DealerGUI {
 
     public DealerGUI(){
         db = new DealerDBQuerySQLite();
-        openGUI();
+        ArrayList<String> states = db.setStates();
+        openGUI(states.toArray(new String[states.size()]));
     }
 
-    private void openGUI(){
+    private void openGUI(String[] states){
         DealerButton buttonListener = new DealerButton();
         frame = new JFrame("Dealer Searching");
         frame.setLayout(new BorderLayout(30,5));
@@ -31,8 +32,8 @@ public class DealerGUI {
 
         JPanel bottom = new JPanel();
         bottom.setLayout(new GridLayout(1,4,4,4));
-        car = new JComboBox<>(new String[]{"Select A Car", "Volvo"});
-        state = new JComboBox<>(new String[]{"Select A State","Ohio", "Utah"});
+        car = new JComboBox<>(new String[]{"Select A Car", "Chevrolet", "Honda", "Mercedes Benz","Volvo"});
+        state = new JComboBox<>(states);
         JButton search = new JButton("Search");
         search.addActionListener(buttonListener);
         JButton close = new JButton("Close");
