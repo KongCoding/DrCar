@@ -32,7 +32,9 @@ public class AskInfo implements AISentences {
                 ui.addTextWithTranslation("\n" + AIname + "If you want to view other answers, please " +
                         "click \"View Results\" on the right side. If not, what else would you want to know about " +
                         carName + "?\n");
-            }
+            }else
+                ui.addTextWithTranslation("\n" + AIname + "What else would you like to know about " +
+                        carName + "? If you want to ask about other cars, please click \"Return\"\n");
         }
         ui.moveBarBottom();
         ui.addText("");

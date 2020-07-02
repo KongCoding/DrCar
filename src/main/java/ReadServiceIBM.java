@@ -7,6 +7,7 @@ import javax.sound.sampled.*;
 import java.io.*;
 
 public class ReadServiceIBM implements ReadService {
+    private static Clip currentRead = null;
     private static final String Apikey = "tEL_HsyVts87fP3YmKAdzXDS9A2CEqkfB3snpFLEU361";
     private static final String URL = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/d1bd69e2-bbc2-4dcd-9b3c-2b21925f7c83";
 
@@ -17,9 +18,16 @@ public class ReadServiceIBM implements ReadService {
         textToSpeech.setServiceUrl(URL);
     }
 
+    public static void StopReading(){
+        if(currentRead != null && currentRead.isRunning()){
+            currentRead.stop();
+            currentRead = null;
+        }
+    }
 
     @Override
     public void Read(String sentence){
+        StopReading();
         SynthesizeOptions synthesizeOptions = new SynthesizeOptions.Builder().text(sentence)
                 .accept("audio/wav").voice("en-US_EmilyV3Voice").build();
         InputStream inputStream = textToSpeech.synthesize(synthesizeOptions).execute().getResult();
@@ -52,9 +60,9 @@ public class ReadServiceIBM implements ReadService {
             AudioInputStream stream = AudioSystem.getAudioInputStream(readFile);
             AudioFormat format = stream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip clip = (Clip) AudioSystem.getLine(info);
-            clip.open(stream);
-            clip.start();
+            currentRead = (Clip) AudioSystem.getLine(info);
+            currentRead.open(stream);
+            currentRead.start();
             stream.close();
         }
         catch (Exception e) {

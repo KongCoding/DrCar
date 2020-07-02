@@ -75,6 +75,7 @@ public class AnswersViewGUI {
         buttons[1].setEnabled(answersNumber < (answers.size() - 1));
     }
 
+    @SuppressWarnings("all")
     private void addTextWithTranslation(){
         String newMessage = answers.get(answersNumber);
         String target = (String)language.getSelectedItem();
@@ -102,6 +103,7 @@ public class AnswersViewGUI {
                     break;
                 case "Close":
                     frame.setVisible(false);
+                    ReadServiceIBM.StopReading();
                     break;
                 case "Read":
                     reading.Read(answers.get(answersNumber));
@@ -121,6 +123,7 @@ public class AnswersViewGUI {
         @Override
         public void windowClosing(WindowEvent e) {
             frame.setVisible(false);
+            ReadServiceIBM.StopReading();
         }
 
         @Override

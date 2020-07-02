@@ -200,6 +200,7 @@ public class DiscoveryGUI {
         @Override
         public void windowClosing(WindowEvent e) {
             frame.setVisible(false);
+            ReadServiceIBM.StopReading();
         }
 
         @Override
