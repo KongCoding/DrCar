@@ -58,7 +58,9 @@ public class AskInfo implements AISentences {
 
     @Override
     public void enter() {
-        askService();
+        String q = ui.getInput();
+        if(!q.equals(""))
+            askService();
     }
 
     @Override
