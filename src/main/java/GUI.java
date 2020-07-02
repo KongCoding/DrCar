@@ -23,13 +23,17 @@ public class GUI {
         ButtonListener bL = new ButtonListener();
         JPanel digitPanel = new JPanel();
         digitPanel.setLayout(new GridLayout(1,5,4,4));
-        ButtonList = new JButton[4];
-        for(int i = 1; i <= 4;i++){
+        ButtonList = new JButton[3];
+        for(int i = 1; i <= 3;i++){
             JButton numberButton = new JButton(""+i);
             numberButton.addActionListener(bL);
             digitPanel.add(numberButton);
             ButtonList[i - 1] = numberButton;
         }
+
+        JButton tutorial = new JButton("Tutorial");
+        tutorial.addActionListener(bL);
+        digitPanel.add(tutorial);
 
         JButton webButton = new JButton("About Us");
         webButton.addActionListener(bL);
@@ -49,8 +53,6 @@ public class GUI {
         close.addActionListener(bL);
         JButton menu = new JButton("Menu");
         menu.addActionListener(bL);
-        tf = new JTextField(20);
-        p.add(tf);
         p.add(hit);
         p.add(close);
         p.add(menu);
@@ -149,8 +151,8 @@ public class GUI {
                 case "1":QAMain.page.one(); break;
                 case "2": QAMain.page.two();break;
                 case "3": QAMain.page.three();break;
-                case "4": QAMain.page.four();break;
-                case "About Us": Emergency.externalWebsite();
+                case "Tutorial": QAMain.page.tutorial();break;
+                case "About Us": Emergency.openMainPage();
                 default:break;
             }
         }

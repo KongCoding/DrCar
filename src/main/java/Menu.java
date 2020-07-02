@@ -39,7 +39,6 @@ public class Menu implements Page {
                 new DealerGUI();
                 start();
                 break;
-            case 4: break;
             default: break;
         }
     }
@@ -82,7 +81,14 @@ public class Menu implements Page {
     }
 
     @Override
-    public void four() {
-        System.out.println("4");
+    public void tutorial() {
+        switch (mode){
+            case 0:Emergency.openTutorial();break;
+            case 1:Emergency.openTutorial1();break;
+            case 2:Emergency.openTutorial2();break;
+            case 3:Emergency.openTutorial3();break;
+            default:break;
+        }
     }
+
 }

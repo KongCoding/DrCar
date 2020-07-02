@@ -118,7 +118,7 @@ public class TranslateService implements Translate, Page {
     }
 
     @Override
-    public void four() {
+    public void tutorial() {
 
     }
 }

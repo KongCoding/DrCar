@@ -11,7 +11,7 @@ public class AskInfo implements AISentences {
     public AskInfo(DiscoveryGUI gui, String name){
         ui = gui;
         carName = name;
-        discovery = new DiscoveryServiceIBM(name); //ready for connect to service.
+        discovery = new DiscoveryServiceIBM(name, ui.getFrame()); //ready for connect to service.
     }
 
     private void askService(){
@@ -51,7 +51,7 @@ public class AskInfo implements AISentences {
 
     @Override
     public void nextSentence() {
-        ui.lockButtons(new int[]{0,1}, false);
+        ui.lockButtons(new int[]{1}, false);
     }
 
     @Override

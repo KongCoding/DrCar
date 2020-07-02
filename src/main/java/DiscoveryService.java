@@ -1,6 +1,7 @@
 import org.dom4j.Document;
 import org.dom4j.io.SAXReader;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -16,6 +17,6 @@ public interface DiscoveryService {
         return document;
     }
 
-    void setService(String carName);
+    void setService(String carName, JFrame frame);
     ArrayList<String> ask(String question);
 }

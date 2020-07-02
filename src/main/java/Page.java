@@ -5,5 +5,5 @@ public interface Page {
     void one();
     void two();
     void three();
-    void four();
+    void tutorial();
 }

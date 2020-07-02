@@ -55,9 +55,9 @@ public class DiscoveryGUI {
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(5,1,4,4));
         //numbers = new JButton[4];
-        JButton voiceInput = new JButton("Voice Input");
-        voiceInput.addActionListener(BL);
-        numberPane.add(voiceInput);
+        JButton tutorial = new JButton("Tutorial");
+        tutorial.addActionListener(BL);
+        numberPane.add(tutorial);
         JButton picture = new JButton("Load Icon");
         picture.addActionListener(BL);
         numberPane.add(picture);
@@ -71,12 +71,11 @@ public class DiscoveryGUI {
         JButton returnButton = new JButton("Return");
         returnButton.addActionListener(BL);
         numberPane.add(returnButton);
-        rightButtons = new JButton[]{voiceInput, picture, read, viewResult, returnButton};
+        rightButtons = new JButton[]{tutorial, picture, read, viewResult, returnButton};
         frame.add(numberPane, BorderLayout.EAST);
 
         //Set frame's size and make it visible.
         frame.setBounds(400,300,600,400);
-        //f.pack();
         frame.setVisible(formalUse);
 
         //Initialize the content in Chat.
@@ -150,6 +149,8 @@ public class DiscoveryGUI {
     public void moveBarBottom(){
         chat.selectAll();
     }
+
+    public JFrame getFrame(){return frame;}
     /**
      * This class describes what system should do when user clicks the buttons.
      */
@@ -159,11 +160,10 @@ public class DiscoveryGUI {
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
                 case "Enter":
-                    //discoveryControl.next();
                     currentAImode.enter();
                     break;
-                case "Voice Input":
-                        //discoveryControl.one();
+                case "Tutorial":
+                    Emergency.openTutorial2();
                     break;
                 case "Load Icon":
                     if(currentAImode instanceof AskCarsName)
@@ -177,8 +177,7 @@ public class DiscoveryGUI {
                     new AnswersViewGUI(currentAImode.getAnswers());
                     break;
                 case "Return":
-                    //discoveryControl.four();
-                    lockButtons(new int[]{0,1,2}, false);
+                    lockButtons(new int[]{1,2}, false);
                     lockButtons(new int[]{3}, true);
                     currentAImode = returnDestination;
                     currentAImode.initialize();

@@ -61,7 +61,7 @@ public class AskCarsName implements AISentences{
     @Override
     public void nextSentence() {
         //Link to next mode (with a given mode, ask different questions.)
-        ui.lockButtons(new int[]{0, 1}, true);
+        ui.lockButtons(new int[]{1}, true);
     }
 
     @Override

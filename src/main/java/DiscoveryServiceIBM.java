@@ -5,6 +5,8 @@ import com.ibm.watson.discovery.v1.model.QueryPassages;
 import com.ibm.watson.discovery.v1.model.QueryResponse;
 import org.dom4j.Document;
 import org.dom4j.Element;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.lang.*;
 import java.util.List;
@@ -20,14 +22,14 @@ public class DiscoveryServiceIBM implements DiscoveryService {
     private static Discovery discovery;
 
     @SuppressWarnings("all")
-    public void setService(String carName){
+    public void setService(String carName, JFrame frame){
         Document company = DiscoveryService.load("Company.xml");
         Document service = DiscoveryService.load("Service.xml");
         Element rootCompany = company.getRootElement();
         Element rootService = service.getRootElement();
         Element targetCar = rootCompany.element(carName.replaceAll(" ", "-").toLowerCase());
         if(targetCar == null)
-            Emergency.emergencyPlan("We cannot find the database of this car");
+            Emergency.emergencyPlanCLoseWindow(frame, "We cannot find the database of this car");
         String collectionName = targetCar.element("company").getText();
         filter = targetCar.element("filter").getText();
 
@@ -48,8 +50,8 @@ public class DiscoveryServiceIBM implements DiscoveryService {
         collectionID = collection.element("collection").getText();
     }
 
-    public DiscoveryServiceIBM(String carName){
-        setService(carName);
+    public DiscoveryServiceIBM(String carName, JFrame frame){
+        setService(carName, frame);
     }
 
     public ArrayList<String> ask(String question){
