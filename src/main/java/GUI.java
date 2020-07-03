@@ -93,8 +93,8 @@ public class GUI {
     True to lock all buttons, false to unlock.
     */
     public void lockUnlockAllButtons(boolean lock){
-        for(int i = 0; i < ButtonList.length; i++){
-            ButtonList[i].setEnabled(!lock);
+        for (JButton jButton : ButtonList) {
+            jButton.setEnabled(!lock);
         }
     }
 
@@ -152,7 +152,7 @@ public class GUI {
                 case "2": QAMain.page.two();break;
                 case "3": QAMain.page.three();break;
                 case "Tutorial": QAMain.page.tutorial();break;
-                case "About Us": Emergency.openMainPage();
+                case "About Us": Emergency.openMainPage("");
                 default:break;
             }
         }

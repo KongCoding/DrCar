@@ -22,12 +22,13 @@ public class DiscoveryServiceIBM implements DiscoveryService {
     private static Discovery discovery;
 
     @SuppressWarnings("all")
-    public void setService(String carName, JFrame frame){
+    public void setService(String carName, JFrame frame) throws NullPointerException{
         Document company = DiscoveryService.load("Company.xml");
         Document service = DiscoveryService.load("Service.xml");
         Element rootCompany = company.getRootElement();
         Element rootService = service.getRootElement();
         Element targetCar = rootCompany.element(carName.replaceAll(" ", "-").toLowerCase());
+        //targetCar = null;
         if(targetCar == null)
             Emergency.emergencyPlanCLoseWindow(frame, "We cannot find the database of this car");
         String collectionName = targetCar.element("company").getText();
@@ -51,7 +52,11 @@ public class DiscoveryServiceIBM implements DiscoveryService {
     }
 
     public DiscoveryServiceIBM(String carName, JFrame frame){
-        setService(carName, frame);
+        try{
+            setService(carName, frame);
+        }catch (NullPointerException e){
+            System.out.println("Didn't find match car's information from xml file.");
+        }
     }
 
     public ArrayList<String> ask(String question){
