@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class TranslateService implements Translate, Page {
+public class TranslateService implements Translate{
 
     private static final String Apikey = "KG1mjYk040N_3XnLQOdZkddfrkava-DU6U5OaiyETvbr";
     private static final String URL = "https://api.us-south.language-translator.watson.cloud.ibm.com/instances/47e63d6e-b7f2-4831-b5ea-7421d85f4a63";
@@ -20,13 +20,10 @@ public class TranslateService implements Translate, Page {
         put("Spanish", "es");
         put("Japanese", "ja");
     }};
-    private static Set<String> modules;
-
-    private void setModules(){
-        modules = new HashSet<>();
-        modules.add("es-fr");
-        modules.add("fr-es");
-    }
+    private static Set<String> modules = new HashSet<>(){{
+        add("es-fr");
+        add("fr-es");
+    }};
 
     @Override
     public void setService(){
@@ -53,34 +50,8 @@ public class TranslateService implements Translate, Page {
 
     }
 
-    public TranslateService(TranslationGUI gui){
-        ui = gui;
-        setService();
-        setModules();
-    }
-
-    public TranslateService(){
-        setService();
-        setModules();
-    }
-
     @Override
-    public String translateFromEnglish(String message, String targetLanguage){
-        TranslateOptions translateOptions = new TranslateOptions.Builder().addText(message)
-                .modelId("en-" + languageList.get(targetLanguage)).build();
-        TranslationResult result = languageTranslator.translate(translateOptions)
-                .execute().getResult();
-        return result.getTranslations().get(0).getTranslation();
-    }
-
-    @Override
-    public void start() {
-        ui.cleanText();
-        ui.addText("Please enter the message you want to translate");
-    }
-
-    @Override
-    public void next() {
+    public void translateFromAnyToAny(){
         String sentence = ui.getText();
         String[] modeList = ui.getTranslationMode();
         String translation = "";
@@ -97,28 +68,21 @@ public class TranslateService implements Translate, Page {
         ui.setRight(translation);
     }
 
-    @Override
-    public void menu() {
+    public TranslateService(TranslationGUI gui){
+        ui = gui;
+        setService();
+    }
 
+    public TranslateService(){
+        setService();
     }
 
     @Override
-    public void one() {
-
-    }
-
-    @Override
-    public void two() {
-
-    }
-
-    @Override
-    public void three() {
-
-    }
-
-    @Override
-    public void tutorial() {
-
+    public String translateFromEnglish(String message, String targetLanguage){
+        TranslateOptions translateOptions = new TranslateOptions.Builder().addText(message)
+                .modelId("en-" + languageList.get(targetLanguage)).build();
+        TranslationResult result = languageTranslator.translate(translateOptions)
+                .execute().getResult();
+        return result.getTranslations().get(0).getTranslation();
     }
 }
