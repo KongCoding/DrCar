@@ -24,7 +24,8 @@ public class AskInfo implements AISentences {
                     "What would you like to know about " + carName + "?\n";
             ui.addTextWithTranslation(AIname + sentenceToRead);
         }else{
-            ui.addTextWithTranslation(AIname + "There are " + answer.size() + " answers for your question: ");
+            ui.addTextWithTranslation(AIname + "There " + (answer.size()==1?"is ":"are ")
+                    + answer.size() + " answer(s) for your question: ");
             sentenceToRead = "The first answer is " + answer.get(0);
             ui.addTextWithTranslation("1. " + answer.get(0));
             ui.lockButtons(new int[]{3}, answer.size() == 1);

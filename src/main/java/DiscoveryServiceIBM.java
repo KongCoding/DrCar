@@ -3,6 +3,7 @@ import com.ibm.watson.discovery.v1.Discovery;
 import com.ibm.watson.discovery.v1.model.QueryOptions;
 import com.ibm.watson.discovery.v1.model.QueryPassages;
 import com.ibm.watson.discovery.v1.model.QueryResponse;
+import com.ibm.watson.discovery.v1.model.QueryResult;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -66,12 +67,12 @@ public class DiscoveryServiceIBM implements DiscoveryService {
 //        queryBuilder.filter(filter1 + filter);
         queryBuilder.filter(filter);
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
-        for(QueryPassages passage:queryResponse.getPassages()){
-            answers.add(passage.getPassageText());
-        }
-//        for(QueryResult result: queryResponse.getResults()){
-//            answers.add((String)result.get("text"));
+//        for(QueryPassages passage:queryResponse.getPassages()){
+//            answers.add(passage.getPassageText());
 //        }
+        for(QueryResult result: queryResponse.getResults()){
+            answers.add((String)result.get("text"));
+        }
         return answers;
     }
 }
