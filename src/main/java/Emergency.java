@@ -38,7 +38,7 @@ public class Emergency {
 
     public static void openMainPage(String message){externalWebsite("https://drcar311199443.wordpress.com/home/", message);}
     public static void openTutorial(){externalWebsite("https://drcar311199443.wordpress.com/home/", "");}
-    public static void openTutorial1(){externalWebsite("https://drcar311199443.wordpress.com/home/", "");}
-    public static void openTutorial2(){externalWebsite("https://drcar311199443.wordpress.com/home/", "");}
-    public static void openTutorial3(){externalWebsite("https://drcar311199443.wordpress.com/home/", "");}
+    public static void openTutorial1(){externalWebsite("https://drcar311199443.wordpress.com/home/#Translation", "");}
+    public static void openTutorial2(){externalWebsite("https://drcar311199443.wordpress.com/home/#Discovery", "");}
+    public static void openTutorial3(){externalWebsite("https://drcar311199443.wordpress.com/home/#DealerSearch", "");}
 }
