@@ -1,4 +1,6 @@
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
+import com.ibm.cloud.sdk.core.service.exception.NotFoundException;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.discovery.v1.Discovery;
 import com.ibm.watson.discovery.v1.model.QueryOptions;
 import com.ibm.watson.discovery.v1.model.QueryPassages;
@@ -60,7 +62,7 @@ public class DiscoveryServiceIBM implements DiscoveryService {
         }
     }
 
-    public ArrayList<String> ask(String question){
+    public ArrayList<String> ask(String question) throws ServiceResponseException {
         ArrayList<String> answers = new ArrayList<>();
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environment, collectionID);
         queryBuilder.naturalLanguageQuery(question);

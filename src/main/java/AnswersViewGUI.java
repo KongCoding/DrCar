@@ -1,3 +1,5 @@
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -106,7 +108,12 @@ public class AnswersViewGUI {
                     ReadServiceIBM.StopReading();
                     break;
                 case "Read":
-                    reading.Read(answers.get(answersNumber));
+                    try{
+                        reading.Read(answers.get(answersNumber));
+                    }catch (ServiceResponseException ex){
+                        Emergency.emergencyPlanCLoseWindow(frame,
+                                "There are some problem on the service. Please try again later.");
+                    }
                     break;
                 default:break;
             }

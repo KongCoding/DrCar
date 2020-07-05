@@ -17,6 +17,10 @@ public class Emergency {
         frame.setVisible(false);
     }
 
+    public static void emergencyPlanNothing(String errorMessage){
+        JOptionPane.showConfirmDialog(null, errorMessage, "Error", JOptionPane.DEFAULT_OPTION);
+    }
+
     public static void externalWebsite(String link, String message){
         if(message.equals(""))
             message = "This will open external browser. Do you want to continue?";

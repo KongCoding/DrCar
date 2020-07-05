@@ -108,7 +108,8 @@ public class AskCarsName implements AISentences{
         if(cars.contains(carName)){
             ui.replacePage(new AskInfo(ui, carName));
         }else{
-            ui.addTextWithTranslation("Sorry, our database does not contain any information abotu " + carName);
+            ui.addTextWithTranslation("Sorry, our database does not contain any information about " + carName + "\n");
+            sayHello();
         }
     }
 
