@@ -44,7 +44,7 @@ public class AskInfo implements AISentences {
     }
 
     private void askUser(){
-        sentenceToRead = "What would you like to know about " + carName + "?\n";
+        sentenceToRead = "What would you like to know about " + carName + "? (Enter question or keyword)\n";
         ui.addTextWithTranslation(AIname + sentenceToRead);
     }
 

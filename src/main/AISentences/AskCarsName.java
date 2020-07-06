@@ -114,8 +114,8 @@ public class AskCarsName implements AISentences{
     }
 
     private void carList(int company){
-        sentenceToRead = "I know multiple types of cars belong to " + companies.get(company) + ".";
-        String temp = "Please choose the car you want to know and type its whole name: ";
+        sentenceToRead = "I know multiple" + companies.get(company) + " cars!";
+        String temp = "Please choose the car you want to know about and type its whole name: ";
         ui.addTextWithTranslation(AIname + sentenceToRead);
         ui.addTextWithTranslation(temp);
         sentenceToRead += temp;
@@ -128,8 +128,8 @@ public class AskCarsName implements AISentences{
     }
 
     private void misunderstand() {
-        sentenceToRead = "Sorry, I cannot identify this car. Please give me concrete names\n";
-        ui.addTextWithTranslation(AIname + "Sorry, I cannot identify this car. Please give me concrete names\n");
+        sentenceToRead = "Sorry, I cannot identify this car. Please give me an exact name\n";
+        ui.addTextWithTranslation(AIname + "Sorry, I cannot identify this car. Please give me an exact name\n");
         sayHello();
     }
 }
