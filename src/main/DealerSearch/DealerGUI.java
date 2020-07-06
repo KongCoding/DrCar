@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DealerGUI {
@@ -18,10 +19,13 @@ public class DealerGUI {
     private JComboBox<String> car;
     private JComboBox<String> state;
 
+    @SuppressWarnings("all")
     public DealerGUI(){
         db = new DealerDBQuerySQLite();
-        ArrayList<String> states = db.setStates();
-        openGUI(states.toArray(new String[states.size()]));
+        if(db.checkConnect()){
+            ArrayList<String> states = db.setStates();
+            openGUI(states.toArray(new String[states.size()]));
+        }
     }
 
     private void openGUI(String[] states){
@@ -68,15 +72,19 @@ public class DealerGUI {
                     String carName = (String)car.getSelectedItem();
                     String stateName = (String) state.getSelectedItem();
                     if(!carName.contains("Select") && !stateName.contains("Select")){
-                        ArrayList<String> answer = db.Search(carName, stateName);;
-                        StringBuilder sb = new StringBuilder();
-                        if(answer.size() > 0){
-                            sb.append("We find " + answer.size() + " dealers for you:\n");
-                            for(String str: answer)
-                                sb.append(str + "\n");
-                        }else
-                            sb.append("Sorry, we didn't find any dealers in this region");
-                        chat.setText(sb.toString());
+                        try{
+                            ArrayList<String> answer = db.Search(carName, stateName);;
+                            StringBuilder sb = new StringBuilder();
+                            if(answer.size() > 0){
+                                sb.append("We find " + answer.size() + " dealers for you:\n");
+                                for(String str: answer)
+                                    sb.append(str + "\n");
+                            }else
+                                sb.append("Sorry, we didn't find any dealers in this region");
+                            chat.setText(sb.toString());
+                        }catch (SQLException e1){
+                            Emergency.emergencyPlanCLoseWindow(frame,"Sorry, your search is illegal.");
+                        }
                     }
                     break;
                 case "Close":

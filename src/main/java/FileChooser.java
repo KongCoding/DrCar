@@ -3,6 +3,7 @@ import com.baidu.aip.util.Util;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class FileChooser {
     private String path = "";
     private AskCarsName ai;
     private AipImageClassify aip;
+    private JFrame jf;
 
     public FileChooser(AskCarsName AiMode){
         aip = new AipImageClassify("20497789", "1W5Y9LcU5Tb5CohbMOuywWOE",
@@ -38,6 +40,7 @@ public class FileChooser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(res);
         JSONArray result = res.getJSONArray("result");
         JSONObject first = (JSONObject) result.get(0);
         String name = (String)first.get("name");
@@ -51,8 +54,9 @@ public class FileChooser {
         System.out.println(res.toString());
     }
 
+    @SuppressWarnings("all")
     private void identify(){
-        JSONObject res;
+        JSONObject res = null;
         try{
             res = aip.carDetect(Util.readFileByBytes(path), new HashMap<>());
             JSONArray result = res.getJSONArray("result");
@@ -61,6 +65,9 @@ public class FileChooser {
             ai.pictureInput(EnglishName(name));
         } catch (IOException | NullPointerException e) {
             e.printStackTrace();
+        } catch (JSONException e){
+            Emergency.emergencyPlanCLoseWindow(jf, "Sorry, there are some problems on our service. " +
+                    "Please try again later. Error: " + res.getJSONArray("error_msg"));
         }
     }
 
@@ -82,7 +89,7 @@ public class FileChooser {
     }
 
     private void openGUI(){
-        JFrame jf = new JFrame("Choose your file");
+        jf = new JFrame("Choose your file");
         JLabel iconShow = new JLabel();
         JFileChooser chooser = new JFileChooser(".");
         JMenu menu = new JMenu("Files");

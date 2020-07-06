@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
@@ -7,14 +8,18 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
     private Connection connection;
 
     private static Connection InitializeConnection(){
-        File f = new File("CarDealer.db");
+        File f = new File(databaseName);
+        if(!f.exists()){
+            Emergency.emergencyPlanNothing("Sorry, we failed to connect to database");
+            return null;
+        }
 
         //This url is only used for Zhenhao Lu's device.
         //String url = "jdbc:sqlite:C:/Users/13667/Downloads/Java-JDBC-Sample-Application/5914_Project/CarDealer.db";
 
         //This url should work for every device.
         String url = "jdbc:sqlite:" + f.getAbsolutePath();
-        Connection conn = null; // If you create this variable inside the Try block it will be out of scope
+        Connection conn; // If you create this variable inside the Try block it will be out of scope
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(url);
@@ -33,13 +38,14 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
             System.out.println(e.getMessage());
             System.out
                     .println("There was a problem connecting to the database.");
-            Emergency.emergencyPlanShutDown("Sorry, we failed to connect to database");
+            conn = null;
+            Emergency.emergencyPlanNothing("Sorry, we failed to connect to database");
         }
         return conn;
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         DealerDBQuerySQLite db = new DealerDBQuerySQLite();
         ArrayList<String> answer = db.Search("Volvo", "Ohio");
         System.out.println("Test");
@@ -49,10 +55,17 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
     }
 
     public DealerDBQuerySQLite(){
+        //Frame = frame;
         connection = InitializeConnection();
     }
 
     @Override
+    public boolean checkConnect(){
+        return connection != null;
+    }
+
+    @Override
+    @SuppressWarnings("all")
     public ArrayList<String> setStates(){
         String sqlQuery = "select S.State\n" +
                 "from StateShortName as S";
@@ -70,7 +83,7 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
     }
 
     @SuppressWarnings("all")
-    public ArrayList<String> Search(String car, String state){
+    public ArrayList<String> Search(String car, String state) throws SQLException{
         String sqlQuery = "Select C.DealerName, C.Address, C.Phone\n";
         sqlQuery += "from '"+ car + "' as C, StateShortName as N\n";
         sqlQuery += "where C.State = '" + state + "' and C.State = N.State";
@@ -78,27 +91,23 @@ public class DealerDBQuerySQLite implements DealerDBQuery {
 //                "from " + car + " as C, StateShortName as N\n" +
 //                "where (C.State = '" + state + "' or N.ShortName = '" + state + "') and C.State = N.State";
         ArrayList<String> answer = new ArrayList<>();
-        try{
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(sqlQuery);
-            int columnCount = rs.getMetaData().getColumnCount();
-            int n = 1;
-            while (rs.next()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(n + ". ");
-                for (int i = 1; i <= columnCount; i++) {
-                    String columnValue = rs.getString(i);
-                    sb.append(columnValue);
-                    if (i < columnCount - 1) {
-                        sb.append(": ");
-                    }else if(i == columnCount - 1)
-                        sb.append(", ");
-                }
-                answer.add(sb.toString());
-                n++;
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sqlQuery);
+        int columnCount = rs.getMetaData().getColumnCount();
+        int n = 1;
+        while (rs.next()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(n + ". ");
+            for (int i = 1; i <= columnCount; i++) {
+                String columnValue = rs.getString(i);
+                sb.append(columnValue);
+                if (i < columnCount - 1) {
+                    sb.append(": ");
+                }else if(i == columnCount - 1)
+                    sb.append(", ");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            answer.add(sb.toString());
+            n++;
         }
         return answer;
     }
