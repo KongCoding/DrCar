@@ -1,8 +1,11 @@
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
+import com.ibm.cloud.sdk.core.service.exception.NotFoundException;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.discovery.v1.Discovery;
 import com.ibm.watson.discovery.v1.model.QueryOptions;
 import com.ibm.watson.discovery.v1.model.QueryPassages;
 import com.ibm.watson.discovery.v1.model.QueryResponse;
+import com.ibm.watson.discovery.v1.model.QueryResult;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -59,19 +62,19 @@ public class DiscoveryServiceIBM implements DiscoveryService {
         }
     }
 
-    public ArrayList<String> ask(String question){
+    public ArrayList<String> ask(String question) throws ServiceResponseException {
         ArrayList<String> answers = new ArrayList<>();
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environment, collectionID);
         queryBuilder.naturalLanguageQuery(question);
 //        queryBuilder.filter(filter1 + filter);
         queryBuilder.filter(filter);
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
-        for(QueryPassages passage:queryResponse.getPassages()){
-            answers.add(passage.getPassageText());
-        }
-//        for(QueryResult result: queryResponse.getResults()){
-//            answers.add((String)result.get("text"));
+//        for(QueryPassages passage:queryResponse.getPassages()){
+//            answers.add(passage.getPassageText());
 //        }
+        for(QueryResult result: queryResponse.getResults()){
+            answers.add((String)result.get("text"));
+        }
         return answers;
     }
 }

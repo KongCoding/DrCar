@@ -1,3 +1,5 @@
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
+
 import java.util.ArrayList;
 
 public class AskInfo implements AISentences {
@@ -14,7 +16,7 @@ public class AskInfo implements AISentences {
         discovery = new DiscoveryServiceIBM(name, ui.getFrame()); //ready for connect to service.
     }
 
-    private void askService(){
+    private void askService() throws ServiceResponseException {
         String question = ui.getInput();
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
@@ -24,7 +26,8 @@ public class AskInfo implements AISentences {
                     "What would you like to know about " + carName + "?\n";
             ui.addTextWithTranslation(AIname + sentenceToRead);
         }else{
-            ui.addTextWithTranslation(AIname + "There are " + answer.size() + " answers for your question: ");
+            ui.addTextWithTranslation(AIname + "There " + (answer.size()==1?"is ":"are ")
+                    + answer.size() + " answer(s) for your question: ");
             sentenceToRead = "The first answer is " + answer.get(0);
             ui.addTextWithTranslation("1. " + answer.get(0));
             ui.lockButtons(new int[]{3}, answer.size() == 1);
@@ -57,7 +60,7 @@ public class AskInfo implements AISentences {
     }
 
     @Override
-    public void enter() {
+    public void enter() throws ServiceResponseException{
         String q = ui.getInput();
         if(!q.equals(""))
             askService();

@@ -17,6 +17,10 @@ public class Emergency {
         frame.setVisible(false);
     }
 
+    public static void emergencyPlanNothing(String errorMessage){
+        JOptionPane.showConfirmDialog(null, errorMessage, "Error", JOptionPane.DEFAULT_OPTION);
+    }
+
     public static void externalWebsite(String link, String message){
         if(message.equals(""))
             message = "This will open external browser. Do you want to continue?";
@@ -32,9 +36,9 @@ public class Emergency {
         }
     }
 
-    public static void openMainPage(String message){externalWebsite("ServiceCrash.html", message);}
-    public static void openTutorial(){externalWebsite("ServiceCrash.html", "");}
-    public static void openTutorial1(){externalWebsite("ServiceCrash.html", "");}
-    public static void openTutorial2(){externalWebsite("ServiceCrash.html", "");}
-    public static void openTutorial3(){externalWebsite("ServiceCrash.html", "");}
+    public static void openMainPage(String message){externalWebsite("https://drcar311199443.wordpress.com/home/", message);}
+    public static void openTutorial(){externalWebsite("https://drcar311199443.wordpress.com/home/", "");}
+    public static void openTutorial1(){externalWebsite("https://drcar311199443.wordpress.com/home/#Translation", "");}
+    public static void openTutorial2(){externalWebsite("https://drcar311199443.wordpress.com/home/#Discovery", "");}
+    public static void openTutorial3(){externalWebsite("https://drcar311199443.wordpress.com/home/#DealerSearch", "");}
 }

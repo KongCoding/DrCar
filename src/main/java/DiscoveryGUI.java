@@ -1,3 +1,5 @@
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -160,7 +162,13 @@ public class DiscoveryGUI {
         public void actionPerformed(ActionEvent e) {
             switch (e.getActionCommand()){
                 case "Enter":
-                    currentAImode.enter();
+                    try{
+                        currentAImode.enter();
+                    }catch (ServiceResponseException ex){
+                        Emergency.emergencyPlanCLoseWindow(frame,
+                                "There are some problem on the service. " +
+                                        "Please try again later or shorten your problem.");
+                    }
                     break;
                 case "Tutorial":
                     Emergency.openTutorial2();
@@ -171,7 +179,12 @@ public class DiscoveryGUI {
                     break;
                 case "Read":
                     String sentence = currentAImode.read();
-                    reading.Read(sentence);
+                    try{
+                        reading.Read(sentence);
+                    }catch (ServiceResponseException ex){
+                        Emergency.emergencyPlanCLoseWindow(frame,
+                                "There are some problem on the service. Please try again later.");
+                    }
                     break;
                 case "View Results":
                     new AnswersViewGUI(currentAImode.getAnswers());
@@ -237,7 +250,13 @@ public class DiscoveryGUI {
         @Override
         public void keyTyped(KeyEvent e) {
             if(e.getKeyChar() == KeyEvent.VK_ENTER){
-                currentAImode.enter();
+                try{
+                    currentAImode.enter();
+                }catch (ServiceResponseException ex){
+                    Emergency.emergencyPlanCLoseWindow(frame,
+                            "There are some problem on the service. " +
+                                    "Please try again later or shorten your problem.");
+                }
             }
         }
 

@@ -1,4 +1,7 @@
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
+import com.ibm.cloud.sdk.core.service.exception.NotFoundException;
+import com.ibm.cloud.sdk.core.service.exception.RequestTooLargeException;
+import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
 import com.ibm.watson.text_to_speech.v1.TextToSpeech;
 import com.ibm.watson.text_to_speech.v1.model.SynthesizeOptions;
 import com.ibm.watson.text_to_speech.v1.util.WaveUtils;
@@ -26,7 +29,7 @@ public class ReadServiceIBM implements ReadService {
     }
 
     @Override
-    public void Read(String sentence){
+    public void Read(String sentence) throws ServiceResponseException {
         StopReading();
         SynthesizeOptions synthesizeOptions = new SynthesizeOptions.Builder().text(sentence)
                 .accept("audio/wav").voice("en-US_EmilyV3Voice").build();
@@ -45,6 +48,7 @@ public class ReadServiceIBM implements ReadService {
             Play();
         }catch (IOException ioe){
             System.out.println("An IOException happened in ReadService.Read(String sentence)");
+            Emergency.emergencyPlanNothing("Sorry, the reading function is declined.");
         }
     }
 
