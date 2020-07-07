@@ -68,7 +68,7 @@ public class AskCarsName implements AISentences{
     public void enter() {
         String carName = ui.getInput();
         ui.cleanInput();
-        ui.addText("User: " + carName);
+        ui.addText("User: " + carName + "\n");
         boolean findCar = false, findCompany = false;
         int company = -1;
         for(int i = 0; i < cars.size() && !findCar; i++){

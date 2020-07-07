@@ -15,6 +15,7 @@ public class GUI {
     private JButton[] ButtonList;
     public GUI(){
         f = new JFrame("Main Window");
+        f.addWindowListener(new WindowListen());
     }
     public void OpenGUI(){
         System.out.println("Hello, Welcome to Dr. Car!");
@@ -57,7 +58,6 @@ public class GUI {
         p.add(close);
         p.add(menu);
         f.add(p, "South");
-        f.addWindowListener(new WindowListen());
         f.add(newP);
         f.setBounds(400,200,600,400);
         //f.pack();
