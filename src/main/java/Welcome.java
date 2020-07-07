@@ -7,7 +7,7 @@ public class Welcome implements Page {
     @Override
     public void start() {
         //WelcomePage();
-        ui.openPicture("2019-Volvo-XC90-Armoured-Heavy-01.jpg");
+        ui.openPicture("Dr. Car logo design.png");
         try{
             Thread.sleep(3000);
         } catch (InterruptedException e) {
