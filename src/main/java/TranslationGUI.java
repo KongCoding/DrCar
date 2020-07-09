@@ -18,24 +18,27 @@ public class TranslationGUI{
         frame = new JFrame("Translation Service");
         frame.setLayout(new BorderLayout(30,5));
         JPanel bottom = new JPanel();
-        textInput = new JTextField(20);
-        textInput.addKeyListener(new KeyListen());
+//        textInput = new JTextField(20);
+//        textInput.addKeyListener(new KeyListen());
         JButton trans = new JButton("Translate");
         trans.addActionListener(BL);
+        JButton clean = new JButton("Clean");
+        clean.addActionListener(BL);
         String[] languages = {"English-en","Chinese-zh","Spanish-es","France-fr","Japanese-ja"};
         languageChooser1 = new JComboBox<>(languages);
         languageChooser2 = new JComboBox<>(languages);
         bottom.add(languageChooser1);
         bottom.add(languageChooser2);
-        bottom.add(textInput);
+        //bottom.add(textInput);
         bottom.add(trans);
+        bottom.add(clean);
         left = new JTextArea();
         right = new JTextArea();
         left.setLineWrap(true);
         right.setLineWrap(true);
         left.setWrapStyleWord(true);
         right.setWrapStyleWord(true);
-        left.setEditable(false);
+        //left.setEditable(false);
         right.setEditable(false);
         JScrollPane leftPane = new JScrollPane(left);
         JScrollPane rightPane = new JScrollPane(right);
@@ -54,7 +57,7 @@ public class TranslationGUI{
         setLeft("Please enter the message you want to translate");
     }
 
-    public String getText(){ return textInput.getText(); }
+    public String getText(){ return left.getText(); }
     public void cleanText(){left.setText("");right.setText("");}
     public void setLeft(String message){left.setText(message);}
     public void setRight(String message){right.setText(message);}
@@ -72,6 +75,7 @@ public class TranslationGUI{
             switch (e.getActionCommand()){
                 case "Translate": translateControl.translateFromAnyToAny();break;
                 case "Close": frame.setVisible(false);
+                case "Clean": cleanText();
                 default:break;
             }
         }

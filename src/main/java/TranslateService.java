@@ -55,7 +55,7 @@ public class TranslateService implements Translate{
         String sentence = ui.getText();
         String[] modeList = ui.getTranslationMode();
         String translation = "";
-        if(!modeList[0].equalsIgnoreCase(modeList[1])){
+        if(!modeList[0].equalsIgnoreCase(modeList[1]) && !sentence.equals("")){
             if(CheckModule(modeList)){
                 translation = Translate(sentence, modeList[0] + "-" + modeList[1]);
             }else{
@@ -64,7 +64,7 @@ public class TranslateService implements Translate{
         }else{
             translation = sentence;
         }
-        ui.setLeft(sentence);
+        //ui.setLeft(sentence);
         ui.setRight(translation);
     }
 
