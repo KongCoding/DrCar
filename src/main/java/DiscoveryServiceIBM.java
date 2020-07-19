@@ -69,12 +69,12 @@ public class DiscoveryServiceIBM implements DiscoveryService {
 //        queryBuilder.filter(filter1 + filter);
         queryBuilder.filter(filter);
         QueryResponse queryResponse = discovery.query(queryBuilder.passages(true).build()).execute().getResult();
-//        for(QueryPassages passage:queryResponse.getPassages()){
-//            answers.add(passage.getPassageText());
-//        }
-        for(QueryResult result: queryResponse.getResults()){
-            answers.add((String)result.get("text"));
+        for(QueryPassages passage:queryResponse.getPassages()){
+            answers.add(passage.getPassageText());
         }
+//        for(QueryResult result: queryResponse.getResults()){
+//            answers.add((String)result.get("text"));
+//        }
         return answers;
     }
 }

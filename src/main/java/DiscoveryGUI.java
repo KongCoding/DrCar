@@ -57,7 +57,7 @@ public class DiscoveryGUI {
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(5,1,4,4));
         //numbers = new JButton[4];
-        JButton tutorial = new JButton("Tutorial");
+        JButton tutorial = new JButton("Knowledge Range");
         tutorial.addActionListener(BL);
         numberPane.add(tutorial);
         JButton picture = new JButton("Load Icon");
@@ -170,7 +170,7 @@ public class DiscoveryGUI {
                                         "Please try again later or shorten your problem.");
                     }
                     break;
-                case "Tutorial":
+                case "Knowledge Range":
                     Emergency.openTutorial2();
                     break;
                 case "Load Icon":
