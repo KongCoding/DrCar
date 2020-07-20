@@ -7,10 +7,12 @@ import java.awt.event.*;
 public class DiscoveryGUI {
     private AISentences currentAImode;
     private AskCarsName returnDestination;
+    private String[] allCars;
     private JFrame frame;
     protected JTextArea chat;
     protected JTextField textInput;
     protected JComboBox<String> languageChooser;
+    protected JComboBox<String> selector;
     protected JButton[] rightButtons;
     private Translate translation;
     private ReadService reading;
@@ -32,14 +34,17 @@ public class DiscoveryGUI {
 
         //Set the bottom panel = {TextField, 1 button}
         JPanel bottom = new JPanel();
-        bottom.setLayout(new GridLayout(1,3,4,4));
+        bottom.setLayout(new GridLayout(1,4,4,4));
         textInput = new JTextField(20);
         textInput.addKeyListener(new KeyListen());
         JButton ask = new JButton("Enter");
         ask.addActionListener(BL);
         String[] languages = {"English","Japanese", "Chinese", "Spanish"};
         languageChooser = new JComboBox<>(languages);
+        allCars = Tool.returnAllCars();
+        selector = new JComboBox<>(allCars);
         bottom.add(languageChooser);
+        bottom.add(selector);
         bottom.add(textInput);
         bottom.add(ask);
         frame.add(bottom, BorderLayout.SOUTH);
@@ -91,6 +96,13 @@ public class DiscoveryGUI {
         currentAImode.initialize();
     }
 
+    public void replaceSelectorItems(String[] newItems){
+        selector.removeAllItems();
+        for (String item: newItems) {
+            selector.addItem(item);
+        }
+    }
+
     public void lockButtons(int[] lockList, boolean lock){
         for (int number: lockList) {
             rightButtons[number].setEnabled(!lock);
@@ -102,7 +114,7 @@ public class DiscoveryGUI {
      * @return User's answers or questions.
      **/
     public String getInput(){
-        return textInput.getText();
+        return (String)selector.getSelectedItem();
     }
 
     /**
@@ -193,6 +205,7 @@ public class DiscoveryGUI {
                     lockButtons(new int[]{1,2}, false);
                     lockButtons(new int[]{3}, true);
                     currentAImode = returnDestination;
+                    replaceSelectorItems(allCars);
                     currentAImode.initialize();
                     break;
                 default:break;

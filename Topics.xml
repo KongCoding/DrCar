@@ -1,0 +1,27 @@
+<cars>
+    <volvo-xc40>
+        <name>Volvo XC40</name>
+        <topic>
+            <Capacity>
+                <head-letters>Capacity</head-letters>
+                <start>0</start>
+                <end>13</end>
+            </Capacity>
+            <Max-Output>
+                <head-letters>Capacity</head-letters>
+                <start>14</start>
+                <end>34</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Capacity</head-letters>
+                <start>35</start>
+                <end>58</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Capacity</head-letters>
+                <start>59</start>
+                <end>75</end>
+            </Top-Speed>
+        </topic>
+    </volvo-xc40>
+</cars>

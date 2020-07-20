@@ -1,6 +1,9 @@
 import com.ibm.cloud.sdk.core.service.exception.ServiceResponseException;
+import org.dom4j.Element;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AskInfo implements AISentences {
     private static final String AIname = "Dr. Car: ";
@@ -9,10 +12,18 @@ public class AskInfo implements AISentences {
     private DiscoveryService discovery;
     private String sentenceToRead;
     private ArrayList<String> answer;
+    private Element topics;
 
     public AskInfo(DiscoveryGUI gui, String name){
         ui = gui;
         carName = name;
+        ArrayList<String> topicList = new ArrayList<>();
+        topics = Tool.returnGivenCarTopics(carName);
+        List<Element> allTopics = topics.elements();
+        for(Element t: allTopics){
+            topicList.add(t.getQName().getName().replaceAll("-", " "));
+        }
+        ui.replaceSelectorItems(topicList.toArray(new String[topicList.size()]));
         discovery = new DiscoveryServiceIBM(name, ui.getFrame()); //ready for connect to service.
     }
 
@@ -20,6 +31,9 @@ public class AskInfo implements AISentences {
         String question = ui.getInput();
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
+        Element topic = topics.element(question.replaceAll(" ", "-"));
+        String headLetter = Tool.returnHeadLetter(topic);
+        int[] startAndEnd = Tool.returnStartAndEnd(topic);
         answer = discovery.ask(question);
         if(answer.size() == 0){
             sentenceToRead = "Sorry, I can't answer this question. Please be more specific. " +
@@ -28,8 +42,13 @@ public class AskInfo implements AISentences {
         }else{
             ui.addTextWithTranslation(AIname + "There " + (answer.size()==1?"is ":"are ")
                     + answer.size() + " answer(s) for your question: ");
-            sentenceToRead = "The first answer is " + answer.get(0);
-            ui.addTextWithTranslation("1. " + answer.get(0));
+            String bestAnswer = answer.get(0);
+            for (String a: answer){
+                if(a.contains(headLetter))
+                    bestAnswer = Tool.cutString(a, startAndEnd[0], startAndEnd[1]);
+            }
+            sentenceToRead = "The first answer is " + bestAnswer;
+            ui.addTextWithTranslation("1. " + bestAnswer);
             ui.lockButtons(new int[]{3}, answer.size() == 1);
             if(answer.size() > 1){
                 ui.addTextWithTranslation("\n" + AIname + "If you want to view other answers, please " +
