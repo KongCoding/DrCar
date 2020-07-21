@@ -239,4 +239,79 @@
             </Safety>
         </topic>
     </volvo-xc90>
+    <volvo-s90>
+        <name>Volvo S90</name>
+        <topic>
+            <Capacity>
+                <head-letters>Capacity</head-letters>
+                <start>0</start>
+                <end>13</end>
+            </Capacity>
+            <Max-Output>
+                <head-letters>Capacity</head-letters>
+                <start>14</start>
+                <end>34</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Capacity</head-letters>
+                <start>35</start>
+                <end>58</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Capacity</head-letters>
+                <start>59</start>
+                <end>0</end>
+            </Top-Speed>
+            <Price>
+                <head-letters>The Volvo</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Height-and-length>
+                <head-letters>The S90 has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Height-and-length>
+            <Lights>
+                <head-letters>LED headlights</head-letters>
+                <start>0</start>
+                <end>140</end>
+            </Lights>
+            <Touchscreen>
+                <head-letters>Technology that</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Touchscreen>
+            <Audio>
+                <head-letters>With our range</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Audio>
+            <Drive-Mode>
+                <head-letters>With Drive Modes</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Drive-Mode>
+            <Seat>
+                <head-letters>Every seat in</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Seat>
+            <Fresh-Air>
+                <head-letters>The relaxed and</head-letters>
+                <start>0</start>
+                <end>188</end>
+            </Fresh-Air>
+            <Parking>
+                <head-letters>Available at</head-letters>
+                <start>114</start>
+                <end>0</end>
+            </Parking>
+            <Safety>
+                <head-letters>Protecting people</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Safety>
+        </topic>
+    </volvo-s90>
 </cars>

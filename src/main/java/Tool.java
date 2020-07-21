@@ -6,12 +6,11 @@ import java.util.List;
 
 public class Tool {
     public static void main(String[] args) {
-        String rawString = "If the car does leave the road, an energy-absorbing structure " +
-                "in the front seat cushions vertical impact to reduce the chance of serious " +
-                "injury in the event of a hard landing. Safety is at the heart of the XC90. " +
-                "Ultra high-strength boron steel – one of the strongest types available – " +
-                "forms a rigid safety cell around the car’s occupants. Safety belt pre-tensioners";
-        System.out.println(cutStringTest(rawString, 0, 211));
+        String rawString = "Available at speeds up to 8 mph, it’s great when you’re in a tight space and can’t see " +
+                "clearly what’s around you. Park Assist Pilot makes parking effortless, every time. " +
+                "As you drive by potential spaces, the system assesses the size of " +
+                "them and alerts you to any that your car will fit into.";
+        System.out.println(cutStringTest(rawString, 114, 0));
     }
 
     public static String cutStringTest(String answer, int start, int end){
