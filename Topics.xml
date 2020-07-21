@@ -1,3 +1,33 @@
+<!--Format Requirement:
+    1. For each car's name, please use the name you use as the name of nodes in Company.xml, making all letters be
+    lower case and replace all white spaces with "-"
+    2. For each car, please make sure that you make all topics as the children of node <topic> and make sure you have a
+    name in the node <name>.
+    3. For each topic, please change all white spaces into "-" but DO NOT CHANGE ITS CASE.
+    4. You must put a number in the nodes <start> and <end>. If you want to use the whole sentence without cutting,
+    please set both nodes to 0
+    5. the structure of this xml:
+    <cars>
+        <car's name 1>
+            <name>This part will be shown to users</name>
+            <topic>(Do not change it)
+                <topic1> (You can determine the name of topic i by yourself)
+                    <head-letters>I will use String.contains() to check</head-letters>
+                    <start>Start Position</start>
+                    <end>End Position(0 means the end of sentence)</end>
+                </topic1>
+                <topic2>
+                    ...
+                </topic2>
+                ...
+            </topic>
+        </car's name1>
+        <car's name2>
+            ...
+        </car's name2>
+        ...
+    </cars>
+-->
 <cars>
     <volvo-xc40>
         <name>Volvo XC40</name>
@@ -22,6 +52,191 @@
                 <start>59</start>
                 <end>75</end>
             </Top-Speed>
+            <Price>
+                <head-letters>The Volvo</head-letters>
+                <start>0</start>
+                <end>166</end>
+            </Price>
+            <Music>
+                <head-letters>Enjoy music</head-letters>
+                <start>0</start>
+                <end>196</end>
+            </Music>
+            <Height-and-length>
+                <head-letters>The XC40 has</head-letters>
+                <start>0</start>
+                <end>230</end>
+            </Height-and-length>
+            <Parking>
+                <head-letters>Parking on busy</head-letters>
+                <start>0</start>
+                <end>267</end>
+            </Parking>
+            <Space>
+                <head-letters>The interior</head-letters>
+                <start>0</start>
+                <end>213</end>
+            </Space>
+            <Load>
+                <head-letters>The load compartment</head-letters>
+                <start>0</start>
+                <end>115</end>
+            </Load>
+            <Safety>
+                <head-letters>City Safety</head-letters>
+                <start>82</start>
+                <end>198</end>
+            </Safety>
+            <Control-from-phone>
+                <head-letters>Now you can</head-letters>
+                <start>4</start>
+                <end>220</end>
+            </Control-from-phone>
         </topic>
     </volvo-xc40>
+    <volvo-xc60>
+        <name>Volvo XC60</name>
+        <topic>
+            <Capacity>
+                <head-letters>Capacity</head-letters>
+                <start>0</start>
+                <end>13</end>
+            </Capacity>
+            <Max-Output>
+                <head-letters>Capacity</head-letters>
+                <start>14</start>
+                <end>34</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Capacity</head-letters>
+                <start>35</start>
+                <end>58</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Capacity</head-letters>
+                <start>59</start>
+                <end>79</end>
+            </Top-Speed>
+            <Price>
+                <head-letters>The Volvo</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Height-and-length>
+                <head-letters>The XC60 has</head-letters>
+                <start>0</start>
+                <end>198</end>
+            </Height-and-length>
+            <Vision>
+                <head-letters>The XC60 features</head-letters>
+                <start>0</start>
+                <end>174</end>
+            </Vision>
+            <Drive-mode>
+                <head-letters>The XC60 has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Drive-mode>
+            <Load>
+                <head-letters>Loading and</head-letters>
+                <start>0</start>
+                <end>190</end>
+            </Load>
+            <Music>
+                <head-letters>Your music</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Music>
+            <Drive-Assistance>
+                <head-letters>This driver</head-letters>
+                <start>0</start>
+                <end>161</end>
+            </Drive-Assistance>
+            <Park>
+                <head-letters>Park Assist</head-letters>
+                <start>0</start>
+                <end>171</end>
+            </Park>
+            <Safety>
+                <head-letters>City Safety</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Safety>
+            <Style>
+                <head-letters>Our range</head-letters>
+                <start>0</start>
+                <end>173</end>
+            </Style>
+        </topic>
+    </volvo-xc60>
+    <volvo-xc90>
+        <name>Volvo XC90</name>
+        <topic>
+            <Capacity>
+                <head-letters>Capacity</head-letters>
+                <start>0</start>
+                <end>13</end>
+            </Capacity>
+            <Max-Output>
+                <head-letters>Capacity</head-letters>
+                <start>14</start>
+                <end>30</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Capacity</head-letters>
+                <start>31</start>
+                <end>47</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Capacity</head-letters>
+                <start>48</start>
+                <end>0</end>
+            </Top-Speed>
+            <Price>
+                <head-letters>The Volvo</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Height-and-length>
+                <head-letters>The XC90 has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Height-and-length>
+            <LED-Light>
+                <head-letters>LED headlights</head-letters>
+                <start>0</start>
+                <end>151</end>
+            </LED-Light>
+            <Touch-Screen>
+                <head-letters>Many of the</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Touch-Screen>
+            <Audio>
+                <head-letters>The range</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Audio>
+            <Drive-Mode>
+                <head-letters>The XC90 offers</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Drive-Mode>
+            <Power>
+                <head-letters>Range-topping</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Power>
+            <Driving-in-heavy-traffic>
+                <head-letters>Pilot Assist</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Driving-in-heavy-traffic>
+            <Safety>
+                <head-letters>If the car does</head-letters>
+                <start>0</start>
+                <end>211</end>
+            </Safety>
+        </topic>
+    </volvo-xc90>
 </cars>

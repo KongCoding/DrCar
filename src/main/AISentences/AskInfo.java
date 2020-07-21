@@ -18,7 +18,11 @@ public class AskInfo implements AISentences {
         ui = gui;
         carName = name;
         ArrayList<String> topicList = new ArrayList<>();
-        topics = Tool.returnGivenCarTopics(carName);
+        try{
+            topics = Tool.returnGivenCarTopics(carName);
+        }catch (Exception e){
+            Emergency.emergencyPlanShutDown("Error occurs when read Topics.xml, please check your format");
+        }
         List<Element> allTopics = topics.elements();
         for(Element t: allTopics){
             topicList.add(t.getQName().getName().replaceAll("-", " "));
@@ -32,8 +36,14 @@ public class AskInfo implements AISentences {
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
         Element topic = topics.element(question.replaceAll(" ", "-"));
-        String headLetter = Tool.returnHeadLetter(topic);
-        int[] startAndEnd = Tool.returnStartAndEnd(topic);
+        String headLetter = "";
+        int [] startAndEnd = new int[1];
+        try{
+            headLetter = Tool.returnHeadLetter(topic);
+            startAndEnd = Tool.returnStartAndEnd(topic);
+        }catch (Exception e){
+            Emergency.emergencyPlanShutDown("Error occurs when read Topics.xml, please check your format");
+        }
         answer = discovery.ask(question);
         if(answer.size() == 0){
             sentenceToRead = "Sorry, I can't answer this question. Please be more specific. " +

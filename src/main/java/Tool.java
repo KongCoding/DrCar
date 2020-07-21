@@ -6,10 +6,12 @@ import java.util.List;
 
 public class Tool {
     public static void main(String[] args) {
-        String rawString = "Now you can control the major functions of your XC40 from your phone, " +
-                "tablet or wearable. Using the Volvo On Call app, you can pre-heat or pre-cool your XC40, " +
-                "lock or unlock it remotely and find it in a crowded car park.";
-        System.out.println(cutStringTest(rawString, 4, 220));
+        String rawString = "If the car does leave the road, an energy-absorbing structure " +
+                "in the front seat cushions vertical impact to reduce the chance of serious " +
+                "injury in the event of a hard landing. Safety is at the heart of the XC90. " +
+                "Ultra high-strength boron steel – one of the strongest types available – " +
+                "forms a rigid safety cell around the car’s occupants. Safety belt pre-tensioners";
+        System.out.println(cutStringTest(rawString, 0, 211));
     }
 
     public static String cutStringTest(String answer, int start, int end){
@@ -25,13 +27,12 @@ public class Tool {
     public static String cutString(String answer, int start, int end){
         end = end == 0? answer.length(): end;
         if(start >= end || end > answer.length())
-            return "Error, please check your start and end, total length = " + answer.length();
-        else{
+            return answer;
+        else
             return answer.substring(start, end);
-        }
     }
 
-    public static String[] returnAllCars(){
+    public static String[] returnAllCars() throws Exception{
         ArrayList<String> cars = new ArrayList<>();
         Document topics = DiscoveryService.load("Topics.xml");
         Element root = topics.getRootElement();
@@ -42,7 +43,7 @@ public class Tool {
         return cars.toArray(new String[cars.size()]);
     }
 
-    public static Element returnGivenCarTopics(String carName){
+    public static Element returnGivenCarTopics(String carName) throws Exception{
         ArrayList<String> topic = new ArrayList<>();
         Document topics = DiscoveryService.load("Topics.xml");
         Element root = topics.getRootElement();
@@ -55,11 +56,11 @@ public class Tool {
         return allTopic;
     }
 
-    public static String returnHeadLetter(Element topic){
+    public static String returnHeadLetter(Element topic) throws Exception{
         return topic.element("head-letters").getText();
     }
 
-    public static int[] returnStartAndEnd(Element topic){
+    public static int[] returnStartAndEnd(Element topic) throws Exception{
         return new int[]{Integer.parseInt(topic.element("start").getText()), Integer.parseInt(topic.element("end").getText())};
     }
 }

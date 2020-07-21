@@ -34,18 +34,22 @@ public class DiscoveryGUI {
 
         //Set the bottom panel = {TextField, 1 button}
         JPanel bottom = new JPanel();
-        bottom.setLayout(new GridLayout(1,4,4,4));
+        bottom.setLayout(new GridLayout(1,3,4,4));
         textInput = new JTextField(20);
         textInput.addKeyListener(new KeyListen());
         JButton ask = new JButton("Enter");
         ask.addActionListener(BL);
         String[] languages = {"English","Japanese", "Chinese", "Spanish"};
         languageChooser = new JComboBox<>(languages);
-        allCars = Tool.returnAllCars();
+        try{
+            allCars = Tool.returnAllCars();
+        }catch (Exception e){
+            Emergency.emergencyPlanShutDown("Error occurs when read Topics.xml, please check your format");
+        }
         selector = new JComboBox<>(allCars);
         bottom.add(languageChooser);
         bottom.add(selector);
-        bottom.add(textInput);
+        //bottom.add(textInput);
         bottom.add(ask);
         frame.add(bottom, BorderLayout.SOUTH);
 
@@ -62,7 +66,7 @@ public class DiscoveryGUI {
         JPanel numberPane = new JPanel();
         numberPane.setLayout(new GridLayout(5,1,4,4));
         //numbers = new JButton[4];
-        JButton tutorial = new JButton("Knowledge Range");
+        JButton tutorial = new JButton("Tutorial");
         tutorial.addActionListener(BL);
         numberPane.add(tutorial);
         JButton picture = new JButton("Load Icon");
@@ -182,7 +186,7 @@ public class DiscoveryGUI {
                                         "Please try again later or shorten your problem.");
                     }
                     break;
-                case "Knowledge Range":
+                case "Tutorial":
                     Emergency.openTutorial2();
                     break;
                 case "Load Icon":
