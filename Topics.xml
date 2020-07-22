@@ -314,4 +314,79 @@
             </Safety>
         </topic>
     </volvo-s90>
+    <volvo-v60>
+        <name>Volvo V60</name>
+        <topic>
+            <Capacity>
+                <head-letters>Capacity</head-letters>
+                <start>0</start>
+                <end>13</end>
+            </Capacity>
+            <Max-Output>
+                <head-letters>Capacity</head-letters>
+                <start>14</start>
+                <end>34</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Capacity</head-letters>
+                <start>35</start>
+                <end>56</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Capacity</head-letters>
+                <start>57</start>
+                <end>0</end>
+            </Top-Speed>
+            <Price>
+                <head-letters>The Volvo</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Height-and-length>
+                <head-letters>The V60 has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Height-and-length>
+            <Music>
+                <head-letters>Standard Apple</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Music>
+            <Exterior-Design>
+                <head-letters>Finely crafted</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Exterior-Design>
+            <Interior-Design>
+                <head-letters>The interior of</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Interior-Design>
+            <Load>
+                <head-letters>The standard power</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Load>
+            <Voice-Control>
+                <head-letters>of you,</head-letters>
+                <start>82</start>
+                <end>0</end>
+            </Voice-Control>
+            <Parking>
+                <head-letters>The 360</head-letters>
+                <start>0</start>
+                <end>157</end>
+            </Parking>
+            <Safety>
+                <head-letters>City Safety is a</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Safety>
+            <Moonroof>
+                <head-letters>The V60 features</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Moonroof>
+        </topic>
+    </volvo-v60>
 </cars>

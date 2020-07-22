@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Tool {
     public static void main(String[] args) {
-        String rawString = "Available at speeds up to 8 mph, it’s great when you’re in a tight space and can’t see " +
-                "clearly what’s around you. Park Assist Pilot makes parking effortless, every time. " +
-                "As you drive by potential spaces, the system assesses the size of " +
-                "them and alerts you to any that your car will fit into.";
-        System.out.println(cutStringTest(rawString, 114, 0));
+        String rawString = "The 360˚ SurroundView Camera " +
+                "available in the Volvo V60 helps make parking simple by giving " +
+                "you a bird's-eye view of your car and its immediate surroundings. " +
+                "It's especially useful when fitting into tight spaces, and can help you to avoid parking lot scrapes.";
+        System.out.println(cutStringTest(rawString, 0, 157));
     }
 
     public static String cutStringTest(String answer, int start, int end){
