@@ -31,7 +31,7 @@ public class AskInfo implements AISentences {
         discovery = new DiscoveryServiceIBM(name, ui.getFrame()); //ready for connect to service.
     }
 
-    private void askService() throws ServiceResponseException {
+    private void askService() throws RuntimeException {
         String question = ui.getInput();
         ui.addText("User: " + question + "\n");
         ui.cleanInput();
@@ -54,6 +54,7 @@ public class AskInfo implements AISentences {
                     + answer.size() + " answer(s) for your question: ");
             String bestAnswer = answer.get(0);
             for (String a: answer){
+                // && (bestAnswer.indexOf(headLetter) < 0 || bestAnswer.indexOf(headLetter) >= a.indexOf(headLetter))
                 if(a.contains(headLetter))
                     bestAnswer = Tool.cutString(a, startAndEnd[0], startAndEnd[1]);
             }
@@ -89,7 +90,7 @@ public class AskInfo implements AISentences {
     }
 
     @Override
-    public void enter() throws ServiceResponseException{
+    public void enter() throws RuntimeException{
         String q = ui.getInput();
         if(!q.equals(""))
             askService();

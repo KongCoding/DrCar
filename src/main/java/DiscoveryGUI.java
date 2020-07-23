@@ -180,7 +180,7 @@ public class DiscoveryGUI {
                 case "Enter":
                     try{
                         currentAImode.enter();
-                    }catch (ServiceResponseException ex){
+                    }catch (RuntimeException ex){
                         Emergency.emergencyPlanCLoseWindow(frame,
                                 "There are some problem on the service. " +
                                         "Please try again later or shorten your problem.");

@@ -62,7 +62,7 @@ public class DiscoveryServiceIBM implements DiscoveryService {
         }
     }
 
-    public ArrayList<String> ask(String question) throws ServiceResponseException {
+    public ArrayList<String> ask(String question) throws RuntimeException {
         ArrayList<String> answers = new ArrayList<>();
         QueryOptions.Builder queryBuilder = new QueryOptions.Builder(environment, collectionID);
         queryBuilder.naturalLanguageQuery(question);

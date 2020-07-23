@@ -859,4 +859,59 @@
             </Driving-modes>
         </topic>
     </mercedes-benz-gle>
+    <honda-cr-v>
+        <name>Honda CR-V</name>
+        <topic>
+            <Engine-Capacity>
+                <head-letters>Max Output</head-letters>
+                <start>18</start>
+                <end>39</end>
+            </Engine-Capacity>
+            <Max-Output>
+                <head-letters>Max Output</head-letters>
+                <start>0</start>
+                <end>17</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Max Output</head-letters>
+                <start>40</start>
+                <end>60</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Max Output</head-letters>
+                <start>61</start>
+                <end>78</end>
+            </Top-Speed>
+            <Prices>
+                <head-letters>Prices starting</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Prices>
+            <Dimensions>
+                <head-letters>Wheelbase is</head-letters>
+                <start>21</start>
+                <end>0</end>
+            </Dimensions>
+            <Acceleration>
+                <head-letters> </head-letters>
+                <start>79</start>
+                <end>0</end>
+            </Acceleration>
+            <Wheelbase>
+                <head-letters>Wheelbase is</head-letters>
+                <start>0</start>
+                <end>20</end>
+            </Wheelbase>
+            <Automatic-Breaks>
+                <head-letters>easier with LKAS</head-letters>
+                <start>0</start>
+                <end>151</end>
+            </Automatic-Breaks>
+            <ACC>
+                <head-letters>D -</head-letters>
+                <start>4</start>
+                <end>131</end>
+            </ACC>
+        </topic>
+    </honda-cr-v>
 </cars>
