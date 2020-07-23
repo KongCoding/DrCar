@@ -389,4 +389,474 @@
             </Moonroof>
         </topic>
     </volvo-v60>
+    <mercedes-benz-a-class>
+        <name>Mercedes Benz A-Class</name>
+        <topic>
+            <Overall-length-and-height>
+                <head-letters>For the Mercedes-Benz A-Class Sedan</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Overall-length-and-height>
+            <Price>
+                <head-letters>The Mercedes-Benz A-Class Sedan has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Max-output>
+                <head-letters>Max output</head-letters>
+                <start>0</start>
+                <end>36</end>
+            </Max-output>
+            <Engine-capacity>
+                <head-letters>Max output</head-letters>
+                <start>38</start>
+                <end>60</end>
+            </Engine-capacity>
+            <Max-torque>
+                <head-letters>Max output</head-letters>
+                <start>62</start>
+                <end>101</end>
+            </Max-torque>
+            <Top-speed>
+                <head-letters>Max output</head-letters>
+                <start>103</start>
+                <end>146</end>
+            </Top-speed>
+            <Acceleration>
+                <head-letters>Max output</head-letters>
+                <start>148</start>
+                <end>180</end>
+            </Acceleration>
+            <Profile>
+                <head-letters>The famous Star anchors the wide</head-letters>
+                <start>0</start>
+                <end>178</end>
+            </Profile>
+            <LED-lighting>
+                <head-letters>With 100% LED lighting inside and out</head-letters>
+                <start>0</start>
+                <end>231</end>
+            </LED-lighting>
+            <Cabin>
+                <head-letters>The roomy, refined cabin</head-letters>
+                <start>0</start>
+                <end>188</end>
+            </Cabin>
+            <Digital-display>
+                <head-letters>Dual 7-inch digital displays</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Digital-display>
+            <Wheels>
+                <head-letters>Circular dash vents go with the flow</head-letters>
+                <start>89</start>
+                <end>0</end>
+            </Wheels>
+            <Touchscreen-and-menu>
+                <head-letters>With a touchscreen in the dash</head-letters>
+                <start>0</start>
+                <end>245</end>
+            </Touchscreen-and-menu>
+            <Voice-commands>
+                <head-letters>Say "Hey, Mercedes, it's cold in here"</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Voice-commands>
+            <Parking-assistance>
+                <head-letters>The Parking Assistance Package</head-letters>
+                <start>0</start>
+                <end>173</end>
+            </Parking-assistance>
+            <Wireless-charging>
+                <head-letters>The Parking Assistance Package</head-letters>
+                <start>174</start>
+                <end>0</end>
+            </Wireless-charging>
+            <In-car-WIFI>
+                <head-letters>Access Remote Start</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </In-car-WIFI>
+        </topic>
+    </mercedes-benz-a-class>
+    <mercedes-benz-c-class>
+        <name>Mercedes Benz C-Class</name>
+        <topic>
+            <Overall-length-and-height>
+                <head-letters>For the Mercedes-Benz C-Class Coupe</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Overall-length-and-height>
+            <Price>
+                <head-letters>The Mercedes-Benz C-Class Coupe has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Max-output>
+                <head-letters>Max output</head-letters>
+                <start>0</start>
+                <end>36</end>
+            </Max-output>
+            <Engine-capacity>
+                <head-letters>Max output</head-letters>
+                <start>38</start>
+                <end>60</end>
+            </Engine-capacity>
+            <Max-torque>
+                <head-letters>Max output</head-letters>
+                <start>62</start>
+                <end>101</end>
+            </Max-torque>
+            <Top-speed>
+                <head-letters>Max output</head-letters>
+                <start>103</start>
+                <end>146</end>
+            </Top-speed>
+            <Acceleration>
+                <head-letters>Max output</head-letters>
+                <start>148</start>
+                <end>180</end>
+            </Acceleration>
+            <Wheel-design>
+                <head-letters>Hug the road</head-letters>
+                <start>0</start>
+                <end>148</end>
+            </Wheel-design>
+            <Turbo-engine>
+                <head-letters>A twin-scroll turbo</head-letters>
+                <start>0</start>
+                <end>217</end>
+            </Turbo-engine>
+            <Powerful-grip>
+                <head-letters>Available 4MATIC</head-letters>
+                <start>0</start>
+                <end>216</end>
+            </Powerful-grip>
+            <Agility>
+                <head-letters>The 4-wheel multilink suspension</head-letters>
+                <start>0</start>
+                <end>236</end>
+            </Agility>
+            <Driving-modes>
+                <head-letters>DYNAMIC SELECT dials</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Driving-modes>
+            <Display-screen>
+                <head-letters>Advanced driving assists</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Display-screen>
+            <Wireless-charging>
+                <head-letters>Along with standard</head-letters>
+                <start>176</start>
+                <end>0</end>
+            </Wireless-charging>
+            <Driving-assistance>
+                <head-letters>A station in the console</head-letters>
+                <start>87</start>
+                <end>0</end>
+            </Driving-assistance>
+            <In-car-WIFI>
+                <head-letters>Access services like</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </In-car-WIFI>
+        </topic>
+    </mercedes-benz-c-class>
+    <mercedes-benz-e-class>
+        <name>Mercedes Benz E-Class</name>
+        <topic>
+            <Overall-length-and-height>
+                <head-letters>For the Mercedes-Benz E-Class Cabriolet</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Overall-length-and-height>
+            <Price>
+                <head-letters>The Mercedes-Benz E-Class Cabriolet has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Max-output>
+                <head-letters>Max output</head-letters>
+                <start>0</start>
+                <end>36</end>
+            </Max-output>
+            <Engine-capacity>
+                <head-letters>Max output</head-letters>
+                <start>38</start>
+                <end>60</end>
+            </Engine-capacity>
+            <Max-torque>
+                <head-letters>Max output</head-letters>
+                <start>62</start>
+                <end>101</end>
+            </Max-torque>
+            <Top-speed>
+                <head-letters>Max output</head-letters>
+                <start>103</start>
+                <end>121</end>
+            </Top-speed>
+            <Acceleration>
+                <head-letters>Max output</head-letters>
+                <start>122</start>
+                <end>154</end>
+            </Acceleration>
+            <Design-style>
+                <head-letters>From its grille Star</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Design-style>
+            <Cabin-design>
+                <head-letters>Whether an onlooker</head-letters>
+                <start>90</start>
+                <end>0</end>
+            </Cabin-design>
+            <Display-screen>
+                <head-letters>From illuminated dash</head-letters>
+                <start>162</start>
+                <end>0</end>
+            </Display-screen>
+            <Acoustic-soft-top>
+                <head-letters>Intuitive touchpads on</head-letters>
+                <start>181</start>
+                <end>0</end>
+            </Acoustic-soft-top>
+            <AMG-line>
+                <head-letters>From its grille Star</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </AMG-line>
+            <Display-screen>
+                <head-letters>Advanced driving assists</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Display-screen>
+            <Driving-sensor>
+                <head-letters>Radar and other sensors</head-letters>
+                <start>0</start>
+                <end>244</end>
+            </Driving-sensor>
+            <Heated-seats>
+                <head-letters>Season-extending innovations</head-letters>
+                <start>0</start>
+                <end>237</end>
+            </Heated-seats>
+            <Driving-condition-update>
+                <head-letters>"Car-to-X" technology</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Driving-condition-update>
+            <Wireless-connect>
+                <head-letters>Integrating your compatible phone</head-letters>
+                <start>0</start>
+                <end>233</end>
+            </Wireless-connect>
+            <Powerful-turbo>
+                <head-letters>From its biturbo engine</head-letters>
+                <start>150</start>
+                <end>0</end>
+            </Powerful-turbo>
+            <Speed-modes>
+                <head-letters>Permanent all-wheel drive</head-letters>
+                <start>235</start>
+                <end>0</end>
+            </Speed-modes>
+        </topic>
+    </mercedes-benz-e-class>
+    <mercedes-benz-glc>
+        <name>Mercedes Benz GLC</name>
+        <topic>
+            <Overall-length-and-height>
+                <head-letters>For the Mercedes-Benz GLC SUVs</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Overall-length-and-height>
+            <Price>
+                <head-letters>The Mercedes-Benz GLC SUV has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Max-output>
+                <head-letters>GLC 300 / GLC 300 4MATIC</head-letters>
+                <start>0</start>
+                <end>98</end>
+            </Max-output>
+            <Engine-capacity>
+                <head-letters>GLC 300 / GLC 300 4MATIC</head-letters>
+                <start>100</start>
+                <end>129</end>
+            </Engine-capacity>
+            <Max-torque>
+                <head-letters>GLC 300 / GLC 300 4MATIC</head-letters>
+                <start>131</start>
+                <end>192</end>
+            </Max-torque>
+            <Top-speed>
+                <head-letters>GLC 300 / GLC 300 4MATIC</head-letters>
+                <start>194</start>
+                <end>271</end>
+            </Top-speed>
+            <Acceleration>
+                <head-letters>GLC 300 / GLC 300 4MATIC</head-letters>
+                <start>273</start>
+                <end>314</end>
+            </Acceleration>
+            <Design-style>
+                <head-letters>Benchmarks can't be</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Design-style>
+            <Cabin-design>
+                <head-letters>Fresh details</head-letters>
+                <start>81</start>
+                <end>0</end>
+            </Cabin-design>
+            <Touchscreen>
+                <head-letters>And every surface rewards</head-letters>
+                <start>110</start>
+                <end>0</end>
+            </Touchscreen>
+            <Seat-and-liftgate>
+                <head-letters>The roomy rear seat</head-letters>
+                <start>0</start>
+                <end>191</end>
+            </Seat-and-liftgate>
+            <Wheels>
+                <head-letters>The AMG Line pumps up</head-letters>
+                <start>0</start>
+                <end>190</end>
+            </Wheels>
+            <Driving-modes>
+                <head-letters>The GLC 350e adds plug-in</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Driving-modes>
+            <Voice-Artificial-Intelligence>
+                <head-letters>The GLC's new</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Voice-Artificial-Intelligence>
+            <Touchscreen-console>
+                <head-letters>Say "I need a coffee"</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Touchscreen-console>
+            <In-car-WIFI>
+                <head-letters>Access Remote Start</head-letters>
+                <start>0</start>
+                <end>179</end>
+            </In-car-WIFI>
+            <Drive-Assistance>
+                <head-letters>Access Remote Start</head-letters>
+                <start>180</start>
+                <end>0</end>
+            </Drive-Assistance>
+            <Upholstery-and-LED-lighting>
+                <head-letters>Beyond the wide range</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Upholstery-and-LED-lighting>
+            <Hybrid>
+                <head-letters>There are also multicolor</head-letters>
+                <start>92</start>
+                <end>0</end>
+            </Hybrid>
+        </topic>
+    </mercedes-benz-glc>
+    <mercedes-benz-gle>
+        <name>Mercedes Benz GLE</name>
+        <topic>
+            <Overall-length-and-height>
+                <head-letters>For all the Mercedes-Benz GLE SUVs</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Overall-length-and-height>
+            <Price>
+                <head-letters>The Mercedes-Benz GLE SUV has</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Price>
+            <Max-output>
+                <head-letters>GLE 350/GLE 350 4MATIC SUVs</head-letters>
+                <start>0</start>
+                <end>139</end>
+            </Max-output>
+            <Engine-capacity>
+                <head-letters>GLE 350/GLE 350 4MATIC SUVs</head-letters>
+                <start>141</start>
+                <end>177</end>
+            </Engine-capacity>
+            <Max-torque>
+                <head-letters>GLE 350/GLE 350 4MATIC SUVs</head-letters>
+                <start>179</start>
+                <end>0</end>
+            </Max-torque>
+            <Top-speed>
+                <head-letters>-ft @</head-letters>
+                <start>81</start>
+                <end>167</end>
+            </Top-speed>
+            <Acceleration>
+                <head-letters>-ft @</head-letters>
+                <start>169</start>
+                <end>0</end>
+            </Acceleration>
+            <Wheels-and-AMG-line>
+                <head-letters>Standard and available</head-letters>
+                <start>0</start>
+                <end>156</end>
+            </Wheels-and-AMG-line>
+            <LED-lighting>
+                <head-letters>Beautiful by day</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </LED-lighting>
+            <Digital-touchscreen-design>
+                <head-letters>You can even</head-letters>
+                <start>84</start>
+                <end>0</end>
+            </Digital-touchscreen-design>
+            <Seats>
+                <head-letters>Flowing door-to-door</head-letters>
+                <start>169</start>
+                <end>0</end>
+            </Seats>
+            <Artificial-Intelligence>
+                <head-letters>Speak naturally</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Artificial-Intelligence>
+            <Touchscreen-control>
+                <head-letters>A 12.3-inch</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Touchscreen-control>
+            <In-car-WIFI>
+                <head-letters>Access Remote Start</head-letters>
+                <start>0</start>
+                <end>203</end>
+            </In-car-WIFI>
+            <Safer-driving>
+                <head-letters>With available new</head-letters>
+                <start>0</start>
+                <end>190</end>
+            </Safer-driving>
+            <Turbo-engine>
+                <head-letters>All while inspiring</head-letters>
+                <start>49</start>
+                <end>0</end>
+            </Turbo-engine>
+            <Speed-modes>
+                <head-letters>With nine speeds</head-letters>
+                <start>0</start>
+                <end>234</end>
+            </Speed-modes>
+            <Driving-modes>
+                <head-letters>DYNAMIC SELECT lets</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Driving-modes>
+        </topic>
+    </mercedes-benz-gle>
 </cars>

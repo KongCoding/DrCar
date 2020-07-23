@@ -21,15 +21,15 @@
     </volvo-s90>
     <mercedes-benz-a-class>
         <company>mercedes-benz</company>
-        <filter>"A-Class"</filter>
+        <filter>"A-Class Sedan"</filter>
     </mercedes-benz-a-class>
     <mercedes-benz-c-class>
         <company>mercedes-benz</company>
-        <filter>"C-Class"</filter>
+        <filter>"C-Class Coupe"</filter>
     </mercedes-benz-c-class>
     <mercedes-benz-e-class>
         <company>mercedes-benz</company>
-        <filter>"E-Class"</filter>
+        <filter>"E-Class Cabriolet"</filter>
     </mercedes-benz-e-class>
     <mercedes-benz-glc>
         <company>mercedes-benz</company>
