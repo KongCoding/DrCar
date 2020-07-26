@@ -969,4 +969,54 @@
             </Different-Modes>
         </topic>
     </honda-fit>
+    <honda-insight>
+        <name>Honda Insight</name>
+        <topic>
+            <Engine-Capacity>
+                <head-letters>Max Output</head-letters>
+                <start>18</start>
+                <end>39</end>
+            </Engine-Capacity>
+            <Max-Output>
+                <head-letters>Max Output</head-letters>
+                <start>0</start>
+                <end>17</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Max Output</head-letters>
+                <start>40</start>
+                <end>60</end>
+            </Max-Torque>
+            <Top-Speed>
+                <head-letters>Max Output</head-letters>
+                <start>61</start>
+                <end>78</end>
+            </Top-Speed>
+            <Prices>
+                <head-letters>Prices starting</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Prices>
+            <Dimensions>
+                <head-letters>Wheelbase is</head-letters>
+                <start>21</start>
+                <end>0</end>
+            </Dimensions>
+            <Acceleration>
+                <head-letters>Max Output</head-letters>
+                <start>79</start>
+                <end>0</end>
+            </Acceleration>
+            <Wheelbase>
+                <head-letters>Wheelbase is</head-letters>
+                <start>0</start>
+                <end>20</end>
+            </Wheelbase>
+            <ACC>
+                <head-letters>B -</head-letters>
+                <start>58</start>
+                <end>0</end>
+            </ACC>
+        </topic>
+    </honda-insight>
 </cars>
