@@ -1069,4 +1069,49 @@
             </In-Bed-Trunk>
         </topic>
     </honda-ridgeline>
+    <honda-odyssey>
+        <name>Honda Odyssey</name>
+        <topic>
+            <Engine-Capacity>
+                <head-letters>Max Output</head-letters>
+                <start>18</start>
+                <end>39</end>
+            </Engine-Capacity>
+            <Max-Output>
+                <head-letters>Max Output</head-letters>
+                <start>0</start>
+                <end>17</end>
+            </Max-Output>
+            <Max-Torque>
+                <head-letters>Max Output</head-letters>
+                <start>40</start>
+                <end>60</end>
+            </Max-Torque>
+            <Prices>
+                <head-letters>Prices start</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Prices>
+            <Dimensions>
+                <head-letters>Wheelbase is</head-letters>
+                <start>21</start>
+                <end>0</end>
+            </Dimensions>
+            <Acceleration>
+                <head-letters>Max Output</head-letters>
+                <start>75</start>
+                <end>0</end>
+            </Acceleration>
+            <Wheelbase>
+                <head-letters>Wheelbase is</head-letters>
+                <start>0</start>
+                <end>20</end>
+            </Wheelbase>
+            <Driving-Assistance-Features>
+                <head-letters>RDM can</head-letters>
+                <start>0</start>
+                <end>0</end>
+            </Driving-Assistance-Features>
+        </topic>
+    </honda-odyssey>
 </cars>

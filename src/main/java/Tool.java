@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Tool {
     public static void main(String[] args) {
-        String capacity_output_torque_tp_a = "Max output 280 hp Engine capacity 3.5 L Max torque 262 lb-ft " +
-                "Max speed 120 mph Acceleration, 0-69 mph 7.5 sec";
+        String capacity_output_torque_tp_a = "Max Output 280 hp Engine capacity 3.5 L Max torque 262 lb-ft " +
+                "Top speed N/A Acceleration, 0-60 mph 6.9 sec";
         String price = "Prices start at $29,990";
         String wheelbase_dimension = "Wheelbase is 99.6”. Dimensions are 161\" L x 67” W x 60\" H\n";
         String daf = "ACC helps you maintain a set following interval behind a detected vehicle for highway driving. " +
@@ -21,7 +21,7 @@ public class Tool {
                 "available in the Volvo V60 helps make parking simple by giving " +
                 "you a bird's-eye view of your car and its immediate surroundings. " +
                 "It's especially useful when fitting into tight spaces, and can help you to avoid parking lot scrapes.";
-        System.out.println(cutStringTest(acc, 108, 0));
+        System.out.println(cutStringTest(capacity_output_torque_tp_a, 75, 0));
     }
 
     public static String cutStringTest(String answer, int start, int end){
