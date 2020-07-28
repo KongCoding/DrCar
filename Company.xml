@@ -59,4 +59,24 @@
         <company>honda</company>
         <filter>Insight</filter>
     </honda-insight>
+    <chevrolet-camaro>
+        <company>chevrolet</company>
+        <filter>Camaro</filter>
+    </chevrolet-camaro>
+    <chevrolet-colorado>
+        <company>chevrolet</company>
+        <filter>Colorado</filter>
+    </chevrolet-colorado>
+    <chevrolet-impala>
+        <company>chevrolet</company>
+        <filter>Impala</filter>
+    </chevrolet-impala>
+    <chevrolet-malibu>
+        <company>chevrolet</company>
+        <filter>Malibu</filter>
+    </chevrolet-malibu>
+    <chevrolet-traverse>
+        <company>chevrolet</company>
+        <filter>Traverse</filter>
+    </chevrolet-traverse>
 </cars>
