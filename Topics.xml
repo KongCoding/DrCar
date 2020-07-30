@@ -1163,17 +1163,17 @@
                 <end>181</end>
             </Scale>
             <Max-Output>
-                <head-letters>Chevrolet Impala Performance Max</head-letters>
+                <head-letters>Get stares</head-letters>
                 <start>29</start>
                 <end>67</end>
             </Max-Output>
             <Engine-capacity>
-                <head-letters>Chevrolet Impala Performance Max</head-letters>
+                <head-letters>Get stares</head-letters>
                 <start>68</start>
                 <end>109</end>
             </Engine-capacity>
             <Max-torque>
-                <head-letters>Chevrolet Impala Performance Max</head-letters>
+                <head-letters>Get stares</head-letters>
                 <start>110</start>
                 <end>154</end>
             </Max-torque>
@@ -1183,14 +1183,14 @@
                 <end>136</end>
             </Price>
             <Safety>
-                <head-letters>SAFETY:</head-letters>
+                <head-letters>5-Star Overall Vehicle Score</head-letters>
                 <start>0</start>
                 <end>287</end>
             </Safety>
             <Design>
                 <head-letters>Chevrolet Impala Performance Max</head-letters>
                 <start>181</start>
-                <end>274</end>
+                <end>275</end>
             </Design>
         </topic>
     </chevrolet-impala>
@@ -1203,17 +1203,17 @@
                 <end>189</end>
             </Scale>
             <Max-Output>
-                <head-letters>The price of ZR2 starts from $41400</head-letters>
+                <head-letters>You’ll look good doing everything</head-letters>
                 <start>67</start>
                 <end>141</end>
             </Max-Output>
             <Engine-capacity>
-                <head-letters>The price of ZR2 starts from $41400</head-letters>
-                <start>142</start>
-                <end>215</end>
+                <head-letters>The price of Z71 starts from $33900</head-letters>
+                <start>179</start>
+                <end>227</end>
             </Engine-capacity>
             <Max-torque>
-                <head-letters>The price of ZR2 starts from $41400</head-letters>
+                <head-letters>You’ll look good doing everything</head-letters>
                 <start>216</start>
                 <end>305</end>
             </Max-torque>
@@ -1243,17 +1243,17 @@
                 <end>181</end>
             </Scale>
             <Max-Output>
-                <head-letters>Chevrolet Malibu Performance Max</head-letters>
+                <head-letters>sleek lines</head-letters>
                 <start>29</start>
                 <end>99</end>
             </Max-Output>
             <Engine-capacity>
-                <head-letters>Chevrolet Malibu Performance Max</head-letters>
-                <start>100</start>
-                <end>169</end>
+                <head-letters>The price of Premier starts from $33320</head-letters>
+                <start>141</start>
+                <end>210</end>
             </Engine-capacity>
             <Max-torque>
-                <head-letters>Chevrolet Malibu Performance Max</head-letters>
+                <head-letters>sleek lines</head-letters>
                 <start>170</start>
                 <end>254</end>
             </Max-torque>
@@ -1303,7 +1303,7 @@
                 <end>247</end>
             </Price>
             <Cargo>
-                <head-letters>If you have a family</head-letters>
+                <head-letters>Traverse offers the versatility</head-letters>
                 <start>0</start>
                 <end>199</end>
             </Cargo>
