@@ -1,2 +1,2 @@
 # 5914_Project
-Team Dr. Car
+Dr.Car is an intelligent car searching software.
